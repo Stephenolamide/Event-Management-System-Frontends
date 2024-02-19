@@ -17,8 +17,6 @@ import { COLORS } from '../constants/theme';
 const {width, height} = Dimensions.get('window'); 
 
 
-
-
  const bgs =["#9fa7f9","#6e7bf6","#3e4ff3","#0E23f0"]
 
 const Posts = [
