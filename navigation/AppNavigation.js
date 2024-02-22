@@ -49,13 +49,16 @@ const AppNavigation = () => {
         barStyle={isDarkMode ? "light-content" : "dark-content"}
       />
       <SafeAreaProvider>
-        {userRefreshToken !== null ? (
+        {/* {userRefreshToken !== null ? (
           //when a user is signed in
           <MainStack />
         ) : (
           // when a user is signed out
           <AuthenticationStack />
-        )}
+        )} */}
+
+<MainStack />
+
       </SafeAreaProvider>
     </NavigationContainer>
   );

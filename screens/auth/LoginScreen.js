@@ -4,11 +4,6 @@ import {
   View,
   Text,
   TouchableOpacity,
-  Image,
-  KeyboardAvoidingView,
-  TouchableWithoutFeedback,
-  Keyboard,
-  ScrollView,
   Dimensions,
   StyleSheet,
   StatusBar,
@@ -18,20 +13,18 @@ import {
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 import {
-  CommonActions,
-  StackActions,
   useNavigation,
 } from "@react-navigation/native";
 
 import * as Yup from "yup";
 import { Formik } from "formik";
 import LottieView from "lottie-react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import CustomInputExperience from "../../components/CustomInputExperience";
 import { FormSubmitBtn } from "../../components/FormSubmitBtn";
 import { InputField } from "../../components/InputField";
-import client from "../../api/client";
 import { ThemeContext } from "../../context/ThemeContext";
+import useSignIn from "../../utils/auth/authFunction";
+
 const { width, height } = Dimensions.get("screen");
 
 
@@ -53,9 +46,6 @@ const validationSchema = Yup.object({
 const LoginScreen = () => {
   const navigation = useNavigation();
   const [isLoading, setIsLoading] = useState(false);
-  const [userToken, setUserToken] = useState(null);
-  const [userInfo, setUserInfo] = useState(null);
-  const [userRefreshToken, setUserRefreshToken] = useState(null);
   const [error, setError] = useState(null);
 	const {theme} = useContext(ThemeContext)
 
@@ -65,101 +55,10 @@ const LoginScreen = () => {
     password: "",
   };
 
-  // const signIn = async (values) => {
-  //   const email = values.email.trim().toLowerCase() + `@student.babcock.edu.ng`;
-  //   setError(false);
-  //   try {
-  //     setIsLoading(true);
-  //     const res = await client.post("/signin", {
-  //       email: email,
-  //       password: values.password,
-  //     });
-  //     if (res.data.user.isVerified === false) {
-  //       // call the endpoint
-  //       try{
-  //          const formData = new FormData();
-  //        formData.append("email", email);
-  //          const res = await client.post(`/resendcode`, formData)
-  //          if(res.status === 200){
-             
-  //          }
-  //        }catch{
-  //        }
-  //       navigation.dispatch(
-  //         StackActions.replace("verify", {
-  //           // email: values.email,
-  //           email: email,
-  //           password: values.password,
-  //         })
-  //       );
-  //     } else {
-  //       // also store the users values as an object and pass it round
-  //       let userInfo = res.data.user;
 
-  //       setUserInfo(userInfo);
-  //       let token = res.data.token;
-  //       setUserToken(token);
+  const signIn = useSignIn()
 
-  //       let userRefreshToken = res.data.refreshToken;
-  //       setUserRefreshToken(userRefreshToken);
-  //       try {
-  //         //axios.defaults.headers.common.Authorization = `Bearer ${token}`
-  //         // stringify the user object
-  //         await AsyncStorage.setItem("userInfo", JSON.stringify(userInfo));
-  //         // get the user acess token
-  //         await AsyncStorage.setItem("userToken", token);
 
-  //         //set userRefreshToken
-
-  //         await AsyncStorage.setItem("userRefreshToken", userRefreshToken);
-
-  //         // When setting the refresh token expiration
-  //         // const expirationTime = new Date().getTime() + 3 * 60 * 1000; // expiresIn is the token expiration time received from the backend which is 21 days in milliseconds
-  //         // await AsyncStorage.setItem(
-  //         //   "refreshTokenExpiration",
-  //         //   expirationTime.toString()
-  //         // );
-  //       } catch (error) {
-  //         setError("An error occured");
-  //       }
-  //       const value = await AsyncStorage.getItem("userInfo");
-  //       if (value !== null) {
-  //         const userInfo = JSON.parse(value);
-  //         setUserInfo(userInfo);
-  //         navigation.dispatch(StackActions.replace("Tab"));
-  //       }
-  //       setIsLoading(false);
-  //     }
-  //   } catch (e) {
-  //     // if (e.response.data.success === false  && e.response.status === 401 && e.response.data.msg === "Session Expired") {
-  //     //   try{
-  //     //     await getAccessToken()
-  //     //     await signIn()
-
-  //     //   }catch(e){
-
-  //     //    setError(e.message === "Network Error" ? e.message : "Oops! Something went wrong. Please try again.")
-  //     //   }
-  //     // }
-
-  //     if (e.response && e.response.status === 401) {
-  //       setError(`${e.response.data.error}`);
-  //     } else if (e.response && e.response.status === 400) {
-  //       setError(`${e.response.data.error}`);
-  //     } else if (e.message === "Network Error" && e.code === "ERR_NETWORK") {
-  //       setError("Network error, lost connection!");
-  //     } else {
-  //       setError("An error occurred. Please try again later.");
-  //     }
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // };
-
-  const signIn = async()=>{
-    navigation.dispatch(StackActions.replace("Tab"));
-
-  }
   return (
     <SafeAreaView
       style={{ flex: 1, alignContent: "center", backgroundColor: theme.white }}

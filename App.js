@@ -11,6 +11,7 @@ import { ThemeProvider } from "./context/ThemeContext";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { SplashScreen } from 'expo';
+import CustomSafeAreaView from "./components/CustomSafeAreaView";
 
 
 
@@ -84,6 +85,7 @@ const App = ()=> {
 	return (
 		<ThemeProvider>
 		<AuthProvider>
+	
 			<AppNavigation/>
 		</AuthProvider>
 		</ThemeProvider>

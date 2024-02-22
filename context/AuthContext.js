@@ -1,5 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import React, {createContext, useEffect, useState} from "react";
+import React, {createContext, useContext, useEffect, useState} from "react";
 import * as Location from "expo-location";
 import client from "../api/client";
 import {GOOGLE_MAPS_APIKEY} from "@env"
@@ -20,6 +20,8 @@ export const AuthProvider =({children})=>{
 	const [appFirstLaunched, setAppFirstLaunched] = useState(null);
     const [isDarkMode, setIsDarkMode] = useState(null)
 const [userLocationOrigin, setUserLocationOrigin] = useState(null)
+
+const [error, setError] = useState(null)
 const [userCurrentLocationDescription, setUserCurrentLocationDescription] = useState("")
 
     const [loading, setLoading] = useState(null)
@@ -228,8 +230,10 @@ useEffect(()=>{
 
 
     return(
-        <AuthContext.Provider value={{logout, isLoading, userRefreshToken, userInfo, userToken, userLocationOrigin, getLocation, initialCampaign}}>
+        <AuthContext.Provider value={{logout, isLoading, error, setError,userRefreshToken, userInfo, userToken, userLocationOrigin, getLocation, initialCampaign, setIsLoading}}>
             {children}
         </AuthContext.Provider>
     )
 }
+
+export const getContext = () => useContext(AuthContext);

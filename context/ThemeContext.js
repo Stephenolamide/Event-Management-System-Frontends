@@ -1,6 +1,6 @@
 
 
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
 import { useColorScheme} from 'react-native';
 import { darkTheme, lightTheme } from '../constants/theme';
 
@@ -58,3 +58,5 @@ export const ThemeProvider = ({ children }) => {
   );
 };
 
+
+export const getTheme =()=> useContext(ThemeContext)
