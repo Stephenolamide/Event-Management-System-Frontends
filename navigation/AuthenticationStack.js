@@ -2,7 +2,6 @@
 import LoginScreen from "../screens/auth/LoginScreen";
 import { SignUp } from "../screens/auth/SignUpScreen";
 import VerifyAccountScreen from "../screens/auth/VerifyAccountScreen";
-import { TabNavigator } from "./TabStack";
 import React, { useEffect, useState } from "react";
 import OnBoardingScreen from "../screens/auth/OnBoardingScreen";
 import AsyncStorage from "@react-native-async-storage/async-storage";

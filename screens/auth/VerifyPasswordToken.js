@@ -8,9 +8,9 @@ import {
   TouchableWithoutFeedback,
   Alert
 } from "react-native";
-import OTP from "../Components/otp";
+import OTP from "../../components/otp";
 const { height, width } = Dimensions.get("screen");
-import client from "../api/client";
+import client from "../../api/client";
 import { StackActions, useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import LottieView from "lottie-react-native";
@@ -210,7 +210,7 @@ const VerifyTokenLogic = (props) => {
                 Reset Password
               </Text>
               <LottieView
-                source={require("../assets/animations/email-verification.json")}
+                source={require("../../assets/animations/email-verification.json")}
                 style={{
                   width: 300,
                   height: 300,

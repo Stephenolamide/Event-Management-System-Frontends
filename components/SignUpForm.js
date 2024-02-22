@@ -13,7 +13,7 @@ import { FormSubmitBtn } from "./FormSubmitBtn";
 import * as Yup from "yup";
 import { useNavigation, StackActions } from "@react-navigation/native";
 import client from "../api/client";
-import ErrorButton from "./ErrorButton";
+
 import { Eye, EyeOff, School } from "../constants/icons";
 const { width, height } = Dimensions.get("screen");
 import { CheckBox } from "react-native-elements";
@@ -21,6 +21,7 @@ import { ThemeContext } from "../context/ThemeContext";
 import CustomInputExperience from "./CustomInputExperience";
 import * as Linking from 'expo-linking';
 import { Dropdown } from "react-native-element-dropdown";
+import ErrorButton from "./ErrorButton";
 
 
 const validationSchema = Yup.object({

@@ -19,7 +19,7 @@ import * as Yup from "yup";
 import { StackActions, useNavigation } from "@react-navigation/native";
 import { Formik } from "formik";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import client from "../api/client";
+import client from "../../api/client";
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 import { FormSubmitBtn } from "../../components/FormSubmitBtn";
@@ -105,7 +105,7 @@ const ForgotPassword = () => {
               <View style={{ paddingHorizontal: 25, paddingTop: 40 }}>
                 <View style={{ alignItems: "center" }}>
                   <AnimatedLottieView
-                    source={require("../assets/animations/login.json")}
+                    source={require("../../assets/animations/login.json")}
                     style={{
                       position: "relative",
                       width: 250,

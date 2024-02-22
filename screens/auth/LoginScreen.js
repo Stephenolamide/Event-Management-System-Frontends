@@ -16,7 +16,7 @@ import {
 } from "react-native";
 
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { InputField } from "../Components/InputField";
+
 import {
   CommonActions,
   StackActions,
@@ -26,10 +26,12 @@ import {
 import * as Yup from "yup";
 import { Formik } from "formik";
 import LottieView from "lottie-react-native";
-import client from "../api/client";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import CustomInputExperience from "../../components/CustomInputExperience";
 import { FormSubmitBtn } from "../../components/FormSubmitBtn";
+import { InputField } from "../../components/InputField";
+import client from "../../api/client";
+import { ThemeContext } from "../../context/ThemeContext";
 const { width, height } = Dimensions.get("screen");
 
 
@@ -162,7 +164,7 @@ const LoginScreen = () => {
             <View style={{ paddingHorizontal: 25, paddingTop: 40 }}>
               <View style={{ alignItems: "center" }}>
                 <LottieView
-                  source={require("../assets/animations/login.json")}
+                  source={require("../../assets/animations/login.json")}
                   style={{
                     position: "relative",
                     width: 250,

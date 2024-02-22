@@ -12,7 +12,8 @@ import {
   Animated 
 } from 'react-native';
 import LottieView from 'lottie-react-native';
-import { COLORS } from '../constants/theme';
+import { COLORS } from '../../constants/theme';
+
 
 const {width, height} = Dimensions.get('window'); 
 
@@ -203,7 +204,7 @@ const scrollx = React.useRef(new Animated.Value(0)).current
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.primary}}>
       <StatusBar backgroundColor={COLORS.white}/>
-      <Backdrop scrollx={scrollx}/> 
+      {/* <Backdrop scrollx={scrollx}/>  */}
       <Square scrollx={scrollx}/> 
       <FlatList
         ref={ref}
