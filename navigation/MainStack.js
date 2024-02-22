@@ -5,7 +5,7 @@ import { useContext} from "react";
 import { ThemeContext } from "../context/ThemeContext";
 
 import { HomeStack } from "./home/HomeStack";
-import {ProfileStack} from "./profile/ProfileStack"
+import ProfileStack from "./profile/ProfileStack"
 
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 const Stack = createStackNavigator();
@@ -17,7 +17,7 @@ export function MainStack() {
 			// initialRouteName="verify"
 			screenOptions={{ headerShown: false }}
 		>
-			 <Stack.Screen component={TabNavigator} name="Tab" />
+			 <Stack.Screen component={TabNavigator} name="Tabs" />
 		</Stack.Navigator>
 	);
 }
@@ -36,9 +36,11 @@ const TabNavigator = () => {
 
           if (route.name === "Home") {
             iconName = focused ? "home" : "home-outline";
-          } else if (route.name === "Event") {
+          }
+           else if (route.name === "Event") {
             iconName = focused ? "ios-calendar" : "ios-calendar-outline";
-          } else if (route.name === "Profile") {
+          }
+           else if (route.name === "Profile") {
             iconName = focused
               ? "ios-person-circle"
               : "ios-person-circle-outline";
