@@ -1,79 +1,61 @@
-import { FlatList, View } from 'react-native'
-import React, {useCallback, useRef, useState} from 'react'
+import {  Text, TextInput, View, TouchableOpacity, ScrollView } from 'react-native'
+import React, { useState } from 'react'
+import { getTheme } from '../../context/ThemeContext'
 import Home from '../../components/home/Home'
-import { getEventData } from '../../utils/home/homeFunctions';
-import ImageCard from '../../components/home/ImageCard';
+import { width } from '../../utils/dimensionUtils'
+
 
 const HomeComponent = () => {
-  const flatListRef = useRef(null);
-
-
-  const renderItem = useCallback(
-    ({ item }) => (
-      <ImageCard event={item} key={item.id}/>
-    ),
-  );
-
-
-  const events=[
-    {
-      id:1,
-      image:"sdnsdsdnsdnms.jpg"
-    },
-    {
-      id:2,
-      image:"sdnsdsdnsdnms.jpg"
-    },
-    {
-      id:3,
-      image:"sdnsdsdnsdnms.jpg"
-    },
-    {
-      id:3,
-      image:"sdnsdsdnsdnms.jpg"
-    },{
-      id:4,
-      image:"sdnsdsdnsdnms.jpg"
-    },{
-      id:5,
-      image:"sdnsdsdnsdnms.jpg"
-    },{
-      id:6,
-      image:"sdnsdsdnsdnms.jpg"
-    },{
-      id:7,
-      image:"sdnsdsdnsdnms.jpg"
-    },{
-      id:8,
-      image:"sdnsdsdnsdnms.jpg"
-    }
-  ]
+    const {theme} = getTheme()
   return (
-    <View>
-      <FlatList
-         ref={flatListRef}
-         // onScrollToTop={handleRefresh} // for ios
-         onEndReachedThreshold={0.1}
-         onEndReached={getEventData}
-         showsVerticalScrollIndicator={false}
-         data={events}
-          vertical
-         bounces={false}
-         decelerationRate={"fast"}
-         // ListFooterComponent={renderFooter}
-         keyExtractor={(item) => item._id}
-         renderItem={renderItem}
-         // refreshing={isLoading && events.length === 0}
-         // onRefresh={handleRefresh}
-       />
-    </View>
+    <View style={{paddingLeft:10, top:30}}>
+      
+    <Text style={{fontFamily:"Poppins", fontSize:18, alignSelf:"center"}}> Lagos, Nigeria</Text>
+
+{/* search bar */}
+
+<View style={{height:50, width:width*0.9, backgroundColor:"grey", alignSelf:"center", borderRadius:20, top:20}}>
+<TextInput
+placeholder='search'
+placeholderTextColor={"white"}
+style={{right:-20}}
+/>
+</View>
+<ClickComponent/>
+<Text style={{fontFamily:"Poppins3", fontSize:18, color:theme.black, left:10, paddingTop:10}}>Today</Text>
+  
+<Home/>
+  </View>
   )
 }
 
-export default HomeComponent
+
+const ClickComponent = () => {
+  const [clicked, setClicked] = useState(false);
+  const [userClick, setUserClick] = useState(false);
+  
+  const handleNewestClick = () => {
+    setClicked(true);
+    setUserClick(false);
+  };
+  
+  const handleUpcomingClick = () => {
+      setUserClick(true);
+      setClicked(false);
+    };
+  
+    return (
+      <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', paddingTop: 33 }}>
+        <TouchableOpacity  onPress={handleNewestClick}>
+          <Text style={{ fontFamily: 'Poppins', fontSize: 16, color: clicked ? 'blue' : 'black' }}>Newest</Text>
+        </TouchableOpacity>
+  
+        <TouchableOpacity  onPress={handleUpcomingClick}>
+          <Text style={{ fontFamily: 'Poppins', fontSize: 16, color: userClick ? 'blue' : 'black' }}>Upcoming</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  };
 
 
-
-
-
-
+  export default HomeComponent

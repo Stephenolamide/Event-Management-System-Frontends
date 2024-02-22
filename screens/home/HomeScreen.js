@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import Home from '../../components/home/Home'
+import HomeComponent from '../../components/home/HomeComponent'
 
 const HomeScreen = () => {
   return (
     <View>
-    <Home/>
+    <HomeComponent/>
     </View>
   )
 }
