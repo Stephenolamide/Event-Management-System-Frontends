@@ -25,7 +25,7 @@ const Events = ({ event }) => {
  
 
   return (
-    <CustomSafeAreaView style={{top:20}}>
+    <CustomSafeAreaView style={{top:20, padding:10}}>
       <EventImage event={event} navigation={navigation} theme={theme} />
       <EventItems event={event} theme={theme} />
     </CustomSafeAreaView>
@@ -66,17 +66,17 @@ const images =[
             <View>
               <TouchableOpacity
                 activeOpacity={1}
-                onPress={() =>
-                  navigation.navigate("EventDetails", {
-                    image: event.images,
-                    title: event.title,
-                    date: event.date,
-                    time: event.time,
-                    venue: event.venue,
-                    ticketPrice: event.ticketPrice,
-                    content: event.content,
-                  })
-                }
+                // onPress={() =>
+                //   navigation.navigate("EventDetails", {
+                //     image: event.images,
+                //     title: event.title,
+                //     date: event.date,
+                //     time: event.time,
+                //     venue: event.venue,
+                //     ticketPrice: event.ticketPrice,
+                //     content: event.content,
+                //   })
+                // }
               >
                 <Image
                   style={{

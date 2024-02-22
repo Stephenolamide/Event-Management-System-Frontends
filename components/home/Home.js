@@ -1,8 +1,9 @@
-import {  Text, TextInput, View, TouchableOpacity } from 'react-native'
+import {  Text, TextInput, View, TouchableOpacity, ScrollView } from 'react-native'
 import React, { useState } from 'react'
-import { width } from '../../utils/dimensionUtils'
+import { height, width } from '../../utils/dimensionUtils'
 import ImageCard from './ImageCard'
 import { getTheme } from '../../context/ThemeContext'
+import HomeComponent from './HomeComponent'
 
 
 const Home = () => {
@@ -24,7 +25,8 @@ style={{right:-20}}
 </View>
 <ClickComponent/>
 <Text style={{fontFamily:"Poppins3", fontSize:18, color:theme.black, left:10, paddingTop:10}}>Today</Text>
-   <ImageCard/>
+   <HomeComponent/>
+
   </View>
   )
 }
