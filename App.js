@@ -3,19 +3,14 @@ import "react-native-gesture-handler"
 import React, { useCallback, useState, useContext } from "react";
 import { AuthContext, AuthProvider } from "./context/AuthContext";
 import AppNavigation from "./navigation/AppNavigation";
-import {Provider} from "react-redux"
+
 
 import useCustomFonts from "./useCustomFonts";
-import { StatusBar } from "expo-status-bar";
-import { COLORS } from "./constants/theme";
-import { NavigationContainer, useNavigation, DarkTheme, DefaultTheme } from "@react-navigation/native";
 import { useEffect } from "react";
-import { ThemeContext, ThemeProvider } from "./context/ThemeContext";
+import { ThemeProvider } from "./context/ThemeContext";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Text } from "react-native";
-import { View } from "react-native";
+
 import { SplashScreen } from 'expo';
-import { store } from "./store";
 
 
 
@@ -87,15 +82,11 @@ const App = ()=> {
 
 
 	return (
-		<Provider store={store}> 
 		<ThemeProvider>
 		<AuthProvider>
 			<AppNavigation/>
 		</AuthProvider>
 		</ThemeProvider>
-		 </Provider>
-
-		// try and fix redux it seems not to be working and implementing the functions
 	);
 }
 
