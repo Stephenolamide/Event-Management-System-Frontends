@@ -4,6 +4,8 @@ import { width, height } from '../../utils/dimensionUtils'
 import CustomSafeAreaView from '../CustomSafeAreaView'
 import { getTheme } from '../../context/ThemeContext'
 import { useNavigation } from '@react-navigation/native'
+import CustomFlatlist from '../CustomFlatlist'
+
 
 
 const ImageCard = ({event}) => {
@@ -37,67 +39,65 @@ const EventImage = ({ event, navigation, theme }) => {
 const imageW = width * 0.89
 
 
-const images =[
-  "djsdjsdjs.png",
-  "ddjdjdjdj.jpg"
-]
+
+const renderItem =({ item }, id) => {
   return (
-    <>
-      <View
+  <View
+  style={{
+    alignSelf: "center",
+    height: imageH,
+    width: imageW,
+  }}
+  >
+    <TouchableOpacity
+      activeOpacity={1}
+      // onPress={() =>
+      //   navigation.navigate("EventDetails", {
+      //     image: event.images,
+      //     title: event.title,
+      //     date: event.date,
+      //     time: event.time,
+      //     venue: event.venue,
+      //     ticketPrice: event.ticketPrice,
+      //     content: event.content,
+      //   })
+      // }
+    >
+      <Image
         style={{
-          backgroundColor: "red",
-          alignSelf: "center",
-          // marginBottom: 22,
           height: imageH,
           width: imageW,
-          // borderRadius: 20,
-          // alignItems: "center",
+          borderRadius: 20,
+          resizeMode:
+            Platform.OS === "android" ? "cover" : "stretch",
+          alignSelf: "center",
         }}
-      >
-        <FlatList
-          data={images}
-          horizontal
-          bounces={false}
-          showsHorizontalScrollIndicator={false}
-          pagingEnabled
-          scrollEnabled
-          keyExtractor={(index) => index.toString()}
-          renderItem={({ item }, id) => (
-            <View>
-              <TouchableOpacity
-                activeOpacity={1}
-                // onPress={() =>
-                //   navigation.navigate("EventDetails", {
-                //     image: event.images,
-                //     title: event.title,
-                //     date: event.date,
-                //     time: event.time,
-                //     venue: event.venue,
-                //     ticketPrice: event.ticketPrice,
-                //     content: event.content,
-                //   })
-                // }
-              >
-                <Image
-                  style={{
-                    height: imageH,
-                    width: imageW,
-                    borderRadius: 20,
-                    resizeMode:
-                      Platform.OS === "android" ? "cover" : "stretch",
-                    alignSelf: "center",
-                  }}
-                  key={id}
-                  // source={{ uri: item }}
+        key={id}
+        // source={{ uri: item }}
 
-                  source={require("../../assets/busa.png")}
-                />
-              </TouchableOpacity>
-            </View>
-          )}
+        source={require("../../assets/busa.png")}
+      />
+    </TouchableOpacity>
+  </View>
+  )
+}
+
+const images =[
+  "djsdjsdjs.png",
+  "ddjdjdjdsdsdsj.jpg",
+  "ddjdjdjdhsdhsbddj.jpg",
+  "djsdjsdbhsdhsdhssdjs.png",
+
+]
+  return (
+        <CustomFlatlist
+          data={images}
+          horizontal ={true}
+          showsHorizontalScrollIndicator={false}
+          keyExtractor={(index) => index.toString()}
+          renderItem={renderItem}
+           pagingEnabled ={true}
         />
-      </View>
-    </>
   );
 };
 

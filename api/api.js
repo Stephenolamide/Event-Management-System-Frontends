@@ -1,7 +1,7 @@
 // api.js
 
 
-import client from "./client"; // Assuming this is where your axios client is configured
+import client from "./client"; // axios client configuration
 
 export const sendRequest = async (method, url, data = null, headers = {}) => {
   try {

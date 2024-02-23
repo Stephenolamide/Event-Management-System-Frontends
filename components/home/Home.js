@@ -3,6 +3,7 @@ import React, {useCallback, useRef} from 'react'
 import { getEventData } from '../../utils/home/homeFunctions';
 import ImageCard from '../../components/home/ImageCard';
 import { height } from '../../utils/dimensionUtils';
+import CustomFlatlist from '../CustomFlatlist';
 
 const Home = () => {
   const flatListRef = useRef(null);
@@ -49,21 +50,21 @@ const Home = () => {
     }
   ]
   return (
-      <FlatList
+      <CustomFlatlist
          ref={flatListRef}
          // onScrollToTop={handleRefresh} // for ios
          onEndReachedThreshold={0.1}
          onEndReached={getEventData}
          showsVerticalScrollIndicator={false}
          data={events}
-          vertical
-         bounces={false}
+        vertical={true}
          decelerationRate={"fast"}
          // ListFooterComponent={renderFooter}
          keyExtractor={(item) => item._id}
          renderItem={renderItem}
          // refreshing={isLoading && events.length === 0}
          // onRefresh={handleRefresh}
+         contentContainerStyle={{height:1000}}
        />
   )
 }
