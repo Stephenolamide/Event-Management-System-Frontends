@@ -1,9 +1,10 @@
-import React, {useCallback, useRef} from 'react'
+import React, {forwardRef, useCallback, useRef} from 'react'
 import { getEventData } from '../../utils/explore/exploreFunctions';
 import CustomFlatlist from '../CustomFlatlist';
 import ExploreCard from './ExploreCard';
+import { View } from 'react-native-web';
 
-const Explore = () => {
+const Explore = forwardRef((ref, props) => {
   const flatListRef = useRef(null);
 
 
@@ -45,24 +46,27 @@ const Explore = () => {
     }
   ]
   return (
-      <CustomFlatlist
-         ref={flatListRef}
-         // onScrollToTop={handleRefresh} // for ios
-         onEndReachedThreshold={0.1}
-         onEndReached={getEventData}
-         showsVerticalScrollIndicator={false}
-         data={events}
-        vertical={true}
-         decelerationRate={"fast"}
-         // ListFooterComponent={renderFooter}
-        //  keyExtractor={(item) => item._id}
-        keyExtractor={(item)=>item.id}
-         renderItem={renderItem}
-         // refreshing={isLoading && events.length === 0}
-         // onRefresh={handleRefresh}
-       />
+    <View
+    ref={flatListRef}
+    >
+        <CustomFlatlist
+           // onScrollToTop={handleRefresh} // for ios
+           onEndReachedThreshold={0.1}
+           onEndReached={getEventData}
+           showsVerticalScrollIndicator={false}
+           data={events}
+          vertical={true}
+           decelerationRate={"fast"}
+           // ListFooterComponent={renderFooter}
+          //  keyExtractor={(item) => item._id}
+          keyExtractor={(item)=>item.id}
+           renderItem={renderItem}
+           // refreshing={isLoading && events.length === 0}
+           // onRefresh={handleRefresh}
+         />
+    </View>
   )
-}
+})
 
 export default Explore
 
