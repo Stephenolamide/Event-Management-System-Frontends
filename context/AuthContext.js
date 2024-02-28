@@ -154,17 +154,18 @@ useEffect(()=>{
     .then((response) => {
       if (response.data.results.length > 0) {
         const description = response.data.results[0].formatted_address;
-        ('Location Description: ', description);
+        const currentStateAdress = response.data.results[8].formatted_address
      
         const userOrigin = {
          latitude:latitude,
          longitude:longitude,
-         description:description
+         description:description,
+         currentStateAdress:currentStateAdress
        }
 
        
        setUserLocationOrigin(userOrigin)
-       console.log(userOrigin)
+      
 
       } else {
         console.log('Location description not found.');

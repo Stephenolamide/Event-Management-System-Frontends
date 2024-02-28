@@ -1,5 +1,6 @@
 import { createStackNavigator } from "@react-navigation/stack";
-import Ionicons from "react-native-vector-icons/Ionicons";
+// import Ionicons from "react-native-vector-icons/Ionicons";
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { useContext} from "react";
 import { ThemeContext } from "../context/ThemeContext";
@@ -8,6 +9,7 @@ import { HomeStack } from "./home/HomeStack";
 import ProfileStack from "./profile/ProfileStack"
 
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
+import ExploreStack from "./explore/ExploreStack";
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -35,37 +37,38 @@ const TabNavigator = () => {
           let iconName;
 
           if (route.name === "Home") {
-            iconName = focused ? "home" : "home-outline";
+            iconName = focused ? "compass" : "compass";
           }
-           else if (route.name === "Event") {
-            iconName = focused ? "ios-calendar" : "ios-calendar-outline";
+           else if (route.name === "Explore") {
+            iconName = focused ? "bolt" : "bolt";
           }
            else if (route.name === "Profile") {
             iconName = focused
-              ? "ios-person-circle"
-              : "ios-person-circle-outline";
-          } else if (route.name === "Task") {
-            iconName = focused ? "add-circle" : "add-circle-outline";
+              ? "user"
+              : "user";
+          } else if (route.name === "Planner") {
+            iconName = focused ? "folder" : "folder";
           }
 
           return (
-            <Ionicons
+            <FontAwesome5
               name={iconName}
-              size={23}
+              size={20}
               color={color}
               style={{ paddingTop: 6 }}
             />
           );
         },
         tabBarActiveTintColor: theme.primary,
-        tabBarInactiveTintColor: theme.darkgray,
-        tabBarLabelStyle: {
-          fontFamily: "Poppins",
-          fontSize: 9,
-          lineHeight: 13.5,
-          textTransform: "none",
-        },
+        tabBarInactiveTintColor: theme.black,
+        // tabBarLabelStyle: {
+        //   fontFamily: "Poppins",
+        //   fontSize: 9,
+        //   lineHeight: 13.5,
+        //   textTransform: "none",
+        // },
         tabBarStyle: { backgroundColor: theme.white },
+        tabBarShowLabel:false
         
       })}
     >
@@ -83,6 +86,8 @@ const TabNavigator = () => {
           })(route),
         })}
       />
+      <Tab.Screen name="Explore" component={ExploreStack} headerShown={true} /> 
+      <Tab.Screen name="Planner" component={ProfileStack} headerShown={true} /> 
       <Tab.Screen name="Profile" component={ProfileStack} headerShown={true} /> 
     </Tab.Navigator>
 

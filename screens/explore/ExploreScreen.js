@@ -1,14 +1,15 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import ExploreComponent from '../../components/explore/ExploreComponent'
 
-const HomeComponent = () => {
+const ExploreScreen = () => {
   return (
     <View>
-      <Text>HomeComponent</Text>
+    <ExploreComponent/>
     </View>
   )
 }
 
-export default HomeComponent
+export default ExploreScreen
 
 const styles = StyleSheet.create({})
