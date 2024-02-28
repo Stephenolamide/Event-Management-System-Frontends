@@ -8,24 +8,23 @@ import CustomFlatlist from '../CustomFlatlist'
 
 
 
-const ImageCard = ({event}) => {
+const ExploreCard = ({event}) => {
   return (
 <Events event ={event}/>
   )
 }
 
-export default ImageCard
 
 
 const Events = ({ event }) => {
   const navigation = useNavigation();
-
+  
   const { theme } = getTheme();
-
-
-
- 
-
+  
+  
+  
+  
+  
   return (
     <CustomSafeAreaView style={{top:20, padding:10}}>
       <EventImage event={event} navigation={navigation} theme={theme} />
@@ -96,7 +95,7 @@ const images =[
           showsHorizontalScrollIndicator={false}
           keyExtractor={(index) => index.toString()}
           renderItem={renderItem}
-           pagingEnabled ={true}
+          pagingEnabled ={true}
         />
   );
 };
@@ -107,7 +106,7 @@ const EventItems = ({ event, theme }) => {
 
   // const formattedDay = changedDate.format("DD"); // format the date as "Friday, 17 February"
   // const formattedDMonth = changedDate.format("MMM");
-
+  
   return (
     <>
       <View
@@ -150,4 +149,4 @@ const EventItems = ({ event, theme }) => {
   );
 };
 
-const styles = StyleSheet.create({})
+export default ExploreCard

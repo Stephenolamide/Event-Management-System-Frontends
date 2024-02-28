@@ -1,7 +1,7 @@
 import React, {useCallback, useRef} from 'react'
 import { getEventData } from '../../utils/explore/exploreFunctions';
-import ImageCard from '../../components/Explore/ImageCard';
 import CustomFlatlist from '../CustomFlatlist';
+import ExploreCard from './ExploreCard';
 
 const Explore = () => {
   const flatListRef = useRef(null);
@@ -9,7 +9,7 @@ const Explore = () => {
 
   const renderItem = useCallback(
     ({ item }) => (
-      <ImageCard event={item} key={item.id}/>
+      <ExploreCard event={item} key={item.id}/>
     ),
   );
 
