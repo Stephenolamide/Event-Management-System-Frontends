@@ -144,7 +144,7 @@ const PasswordLogic = (props, theme) => {
 
                 <Text
                   style={{
-                    fontFamily: "Poppins2",
+                    fontFamily: "Poppins-Bold",
                     fontSize: 25,
                     fontWeight: "500",
                     paddingTop: 30,

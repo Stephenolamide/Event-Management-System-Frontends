@@ -120,7 +120,7 @@ const ForgotPassword = () => {
 
                 <Text
                   style={{
-                    fontFamily: "Poppins2",
+                    fontFamily: "Poppins-Bold",
                     fontSize: 25,
                     fontWeight: "500",
                     paddingTop: 30,
@@ -240,7 +240,7 @@ const ForgotPassword = () => {
                       style={{
                         color: theme.lightblue,
                         paddingBottom: 2,
-                        fontFamily: "Poppins3",
+                        fontFamily: "Poppins-SemiBold",
                         fontSize: 13,
                       }}
                     >

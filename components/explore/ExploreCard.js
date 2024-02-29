@@ -126,7 +126,7 @@ const EventItems = ({ event, theme }) => {
             fontWeight: "800",
             paddingTop: 5,
             fontSize: 27,
-            fontFamily: "Poppins2",
+            fontFamily: "Poppins-Bold",
             color: theme.black,
           }}
         >
@@ -139,7 +139,7 @@ const EventItems = ({ event, theme }) => {
             color: theme.offgray,
             alignSelf: "center",
             bottom: 5,
-            fontFamily: "Poppins3",
+            fontFamily: "Poppins-SemiBold",
           }}
         >
           {/* {formattedDMonth}  */} DEC

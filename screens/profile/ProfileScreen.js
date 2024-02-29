@@ -1,12 +1,44 @@
 
-import * as React from 'react';
+import * as React from "react"
 import {Text, View, StyleSheet, StatusBar, Image} from 'react-native';
-import { theme, SPACING } from '../../constants/theme';
+import { SPACING } from '../../constants/theme';
 import { getTheme } from '../../context/ThemeContext';
+import AppHeader from '../../components/AppHeader';
+import SettingComponent from '../../components/profile/SettingComponent';
 
 const ProfileScreen = ({navigation}) => {
   const {theme} = getTheme()
-  const styles = getStyles(theme)
+
+  console.log(theme)
+  const styles =  StyleSheet.create({
+    container: {
+      display: 'flex',
+      flex: 1,
+      backgroundColor: theme.black,
+    },
+    appHeaderContainer: {
+      marginHorizontal: SPACING.space_36,
+      marginTop: SPACING.space_20 * 2,
+    },
+    profileContainer: {
+      alignItems: 'center',
+      padding: SPACING.space_36,
+    },
+    avatarImage: {
+      height: 80,
+      width: 80,
+      borderRadius: 80,
+    },
+    avatarText: {
+      fontFamily: "Poppins-SemiBold",
+      fontSize: 16,
+      marginTop: SPACING.space_16,
+      color: theme.white,
+    },
+  });
+
+
+
   return (
     <View style={styles.container}>
       <StatusBar hidden />
@@ -60,31 +92,6 @@ const ProfileScreen = ({navigation}) => {
   );
 };
 
-const getStyles = (theme) => StyleSheet.create({
-  container: {
-    display: 'flex',
-    flex: 1,
-    backgroundColor: theme.black,
-  },
-  appHeaderContainer: {
-    marginHorizontal: SPACING.space_36,
-    marginTop: SPACING.space_20 * 2,
-  },
-  profileContainer: {
-    alignItems: 'center',
-    padding: SPACING.space_36,
-  },
-  avatarImage: {
-    height: 80,
-    width: 80,
-    borderRadius: 80,
-  },
-  avatarText: {
-    fontFamily: "Poppins3",
-    fontSize: 16,
-    marginTop: SPACING.space_16,
-    color: theme.white,
-  },
-});
+
 
 export default ProfileScreen;

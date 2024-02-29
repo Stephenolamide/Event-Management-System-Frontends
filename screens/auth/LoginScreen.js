@@ -82,7 +82,7 @@ const LoginScreen = () => {
 
               <Text
                 style={{
-                  fontFamily: "Poppins2",
+                  fontFamily: "Poppins-Bold",
                   fontSize: 28,
                   fontWeight: "500",
                   paddingTop: 30,
@@ -246,7 +246,7 @@ const LoginScreen = () => {
                     style={{
                       color: theme.lightblue,
                       paddingBottom: 2,
-                      fontFamily: "Poppins3",
+                      fontFamily: "Poppins-SemiBold",
                       fontSize: 13,
                     }}
                   >

@@ -186,7 +186,7 @@ const scrollx = React.useRef(new Animated.Value(0)).current
               <TouchableOpacity
                 style={styles.btn}
                 onPress={() => navigation.replace('Sign-up')}>
-                <Text style={{fontWeight: '600', fontSize: 15, fontFamily:"Poppins3", alignSelf:"center"}}>
+                <Text style={{fontWeight: '600', fontSize: 15, fontFamily:"Poppins-SemiBold", alignSelf:"center"}}>
                   GET STARTED
                 </Text>
               </TouchableOpacity>
@@ -243,7 +243,7 @@ const styles = StyleSheet.create({
     marginTop: 100,
     top:70,
     textAlign: 'center',
-    fontFamily:"Poppins3"
+    fontFamily:"Poppins-SemiBold"
   },
   image: {
     height: '100%',

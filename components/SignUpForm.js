@@ -238,7 +238,7 @@ export const SignUpForm = ({ onError }) => {
               alignSelf: "center",
               fontSize: 35,
               fontWeight: "600",
-              fontFamily: "Poppins3",
+              fontFamily: "Poppins-SemiBold",
             }}
           >
             Welcome
@@ -446,7 +446,7 @@ export const SignUpForm = ({ onError }) => {
                   color: theme.primary,
                   fontWeight: "500",
                   marginLeft: 5,
-                  fontFamily: "Poppins3",
+                  fontFamily: "Poppins-SemiBold",
                 }}
                 onPress={() => navigation.navigate("Log-in")}
               >

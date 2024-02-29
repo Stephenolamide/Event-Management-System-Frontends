@@ -204,7 +204,7 @@ const VerifyTokenLogic = (props) => {
                   fontWeight: "600",
                   fontSize: 33,
                   top: 96,
-                  fontFamily: "Poppins3",
+                  fontFamily: "Poppins-SemiBold",
                 }}
               >
                 Reset Password
@@ -238,7 +238,7 @@ const VerifyTokenLogic = (props) => {
                       fontWeight: "600",
                       fontSize: 13,
                       color: theme.black,
-                      fontFamily: "Poppins3",
+                      fontFamily: "Poppins-SemiBold",
                     }}
                   >
                     Didn't receive a code?
@@ -256,7 +256,7 @@ const VerifyTokenLogic = (props) => {
                         textAlign: "center",
                         color: theme.primary,
                         textDecorationLine: "underline",
-                        fontFamily: "Poppins3",
+                        fontFamily: "Poppins-SemiBold",
                       }}
                     >
                       {disabled ? formatTime(timeRemaining) : "Resend code"}
@@ -271,7 +271,7 @@ const VerifyTokenLogic = (props) => {
                         textAlign: "center",
                         color: theme.red,
                         // textDecorationLine: "underline",
-                        fontFamily: "Poppins3",
+                        fontFamily: "Poppins-SemiBold",
                         paddingTop:10
                       }}>{errorMessage}</Text>
                       }

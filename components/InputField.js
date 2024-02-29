@@ -70,7 +70,7 @@ export const InputField = (props) => {
         <Text
           style={{
             color: theme.lightblue,
-            fontFamily: "Poppins3",
+            fontFamily: "Poppins-SemiBold",
             fontSize: 13.5,
             top: 3,
           }}

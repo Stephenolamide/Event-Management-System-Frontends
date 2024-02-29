@@ -11,20 +11,7 @@ import { ReusableIcon } from '../constants/icons';
 
 const AppHeader = (props) => {
  const {theme} = getTheme()
- const styles = getStyles(theme)
-
-  return (
-    <View style={styles.container}>
-      <TouchableOpacity style={styles.iconBG} onPress={() => props.action()}>
-        <ReusableIcon name={props.name} style={styles.iconStyle} />
-      </TouchableOpacity>
-      <Text style={styles.headerText}>{props.header}</Text>
-      <View style={styles.emptyContainer}></View>
-    </View>
-  );
-};
-
-const getStyles =(theme)=> StyleSheet.create({
+ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -54,5 +41,18 @@ const getStyles =(theme)=> StyleSheet.create({
     backgroundColor: theme.primaryblue,
   },
 });
+
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity style={styles.iconBG} onPress={() => props.action()}>
+        <ReusableIcon name={props.name} style={styles.iconStyle} />
+      </TouchableOpacity>
+      <Text style={styles.headerText}>{props.header}</Text>
+      <View style={styles.emptyContainer}></View>
+    </View>
+  );
+};
+
+
 
 export default AppHeader;

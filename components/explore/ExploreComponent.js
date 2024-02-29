@@ -25,7 +25,7 @@ style={{right:-20}}
 />
 </View>
 <ClickComponent/>
-<Text style={{fontFamily:"Poppins3", fontSize:18, color:theme.black, left:10, paddingTop:10}}>Today</Text>
+<Text style={{fontFamily:"Poppins-SemiBold", fontSize:18, color:theme.black, left:10, paddingTop:10}}>Today</Text>
   
 <Explore/>
   </View>
