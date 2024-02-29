@@ -86,9 +86,9 @@ const TabNavigator = () => {
           })(route),
         })}
       />
-      <Tab.Screen name="Explore" component={ExploreStack} headerShown={true} /> 
-      <Tab.Screen name="Planner" component={ProfileStack} headerShown={true} /> 
-      <Tab.Screen name="Profile" component={ProfileStack} headerShown={true} /> 
+      {/* <Tab.Screen name="Explore" component={ExploreStack} headerShown={true} /> 
+      <Tab.Screen name="Planner" component={ProfileStack} headerShown={true} />  */}
+      {/* <Tab.Screen name="Profile" component={ProfileStack} headerShown={true} />  */}
     </Tab.Navigator>
 
     //  </NavigationContainer>

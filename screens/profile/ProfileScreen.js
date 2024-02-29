@@ -17,12 +17,12 @@ const ProfileScreen = ({navigation}) => {
     },
     appHeaderContainer: {
       marginHorizontal: SPACING.space_36,
-      marginTop: 10,
+      marginTop: 13,
     },
     profileContainer: {
       alignItems: 'center',
       padding: 4,
-      top:-10
+      top:14
     },
     avatarImage: {
       height: 80,

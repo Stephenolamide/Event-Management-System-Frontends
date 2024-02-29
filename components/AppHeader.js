@@ -26,7 +26,7 @@ const AppHeader = (props) => {
     fontFamily: FONTFAMILY.poppins_medium,
     fontSize: FONTSIZE.size_20,
     textAlign: 'center',
-    color: theme.white,
+    color: theme.black,
   },
   emptyContainer: {
     height: SPACING.space_20 * 2,
@@ -44,7 +44,7 @@ const AppHeader = (props) => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.iconBG} onPress={() => props.action()}>
+      <TouchableOpacity style={styles.iconBG} onPress={() => props.action()} activeOpacity={0.9}>
         <ReusableIcon name={props.name} style={styles.iconStyle} />
       </TouchableOpacity>
       <Text style={styles.headerText}>{props.header}</Text>

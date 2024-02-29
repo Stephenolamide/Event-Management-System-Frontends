@@ -1,20 +1,3 @@
-import { StyleSheet, Text, View } from "react-native";
-import React, { useContext } from "react";
-
-import { AuthContext } from "../context/AuthContext";
-
-// const theme = () => {
-//   return (
-//     <View>
-//       <Text>theme</Text>
-//     </View>
-//   )
-// }
-
-// export default theme
-
-// const styles = StyleSheet.create({})
-// const {isDark} = useContext(AuthContext)
 
 export const COLORS = {
   primary: "#004FC7", // blue
