@@ -6,11 +6,11 @@ import {
   FONTSIZE,
   SPACING,
 } from '../constants/theme';
-import { getTheme } from '../context/ThemeContext';
+import { ThemeContext, getTheme } from '../context/ThemeContext';
 import { ReusableIcon } from '../constants/icons';
 
 const AppHeader = (props) => {
- const {theme} = getTheme()
+ const {theme} = React.useContext(ThemeContext)
  const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',

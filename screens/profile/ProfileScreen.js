@@ -2,12 +2,12 @@
 import * as React from "react"
 import {Text, View, StyleSheet, StatusBar, Image} from 'react-native';
 import { SPACING } from '../../constants/theme';
-import { getTheme } from '../../context/ThemeContext';
+import { ThemeContext, getTheme } from '../../context/ThemeContext';
 import AppHeader from '../../components/AppHeader';
 import SettingComponent from '../../components/profile/SettingComponent';
 
 const ProfileScreen = ({navigation}) => {
-  const {theme} = getTheme()
+  const {theme} = React.useContext(ThemeContext)
 
   console.log(theme)
   const styles =  StyleSheet.create({
