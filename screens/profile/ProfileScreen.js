@@ -5,6 +5,7 @@ import { SPACING } from '../../constants/theme';
 import { ThemeContext, getTheme } from '../../context/ThemeContext';
 import AppHeader from '../../components/AppHeader';
 import SettingComponent from '../../components/profile/SettingComponent';
+import ProfileContainer from "../../components/ProfileContainer";
 
 const ProfileScreen = ({navigation}) => {
   const {theme} = React.useContext(ThemeContext)
@@ -50,13 +51,7 @@ const ProfileScreen = ({navigation}) => {
         />
       </View>
 
-      <View style={styles.profileContainer}>
-        <Image
-          source={require('../../assets/images/stephen.jpg')}
-          style={styles.avatarImage}
-        />
-        <Text style={styles.avatarText}>Dada Stephen</Text>
-      </View>
+     <ProfileContainer name ={"Dada Stephen"}/>
 
       <View style={styles.profileContainer}>
         <SettingComponent

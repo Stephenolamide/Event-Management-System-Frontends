@@ -5,18 +5,23 @@ import CustomSafeAreaView from '../CustomSafeAreaView'
 import { getTheme } from '../../context/ThemeContext'
 import { useNavigation } from '@react-navigation/native'
 import CustomFlatlist from '../CustomFlatlist'
+import { ReusableIcon } from '../../constants/icons'
+import ProfileContainer from '../ProfileContainer'
 
 
+const imageH = height*0.3
+const imageW = width * 0.89
 
-const ExploreCard = ({event}) => {
+
+const ExploreCard = ({event, screen, style}) => {
   return (
-<Events event ={event}/>
+<Events event ={event} screen={screen} style={style}/>
   )
 }
 
 
 
-const Events = ({ event }) => {
+const Events = ({ event, screen, style }) => {
   const navigation = useNavigation();
   
   const { theme } = getTheme();
@@ -26,26 +31,41 @@ const Events = ({ event }) => {
   
   
   return (
-    <CustomSafeAreaView style={{top:20, padding:10}}>
-      <EventImage event={event} navigation={navigation} theme={theme} />
-      <EventItems event={event} theme={theme} />
-    </CustomSafeAreaView>
+    // <CustomSafeAreaView style={[{ padding:10, top:-10}, style]}>
+
+    <>
+{screen === "HomeScreen" &&
+ <View style ={{flexDirection:"row", top:5}}>
+  <ProfileContainer width={40} height={40} style={{top:-10}}/>
+
+  <View style={{left:10,top:-8 }}>
+<Text style={{fontFamily:"Poppins-SemiBold"}}>Cubana cafe</Text>
+<Text style={{fontFamily:"Poppins-Light"}}>16m ago</Text>
+</View>
+  </View>
+ }
+
+ <View style={{bottom: screen === "HomeScreen" && 30 }}>
+      <EventImage event={event} navigation={navigation} theme={theme} screen={screen}/>
+      { screen !== "HomeScreen" && <EventItems event={event} theme={theme} screen={screen}/>}
+      {screen === "HomeScreen" && <EventFooter event={event} theme={theme} screen={screen}/>}
+ </View>
+ </>
+    // </CustomSafeAreaView>
   );
 };
 
-const EventImage = ({ event, navigation, theme }) => {
-  const imageH = height*0.3
-const imageW = width * 0.89
-
-
-
+const EventImage = ({ event, navigation, theme, screen }) => {
+ 
 const renderItem =({ item }, id) => {
   return (
   <View
   style={{
-    alignSelf: "center",
+    // alignSelf: "center",
     height: imageH,
-    width: imageW,
+    width: imageW*1.06,
+    // borderRadius:20,
+    backgroundColor:"transparent"
   }}
   >
     <TouchableOpacity
@@ -69,12 +89,12 @@ const renderItem =({ item }, id) => {
           borderRadius: 20,
           resizeMode:
             Platform.OS === "android" ? "cover" : "stretch",
-          alignSelf: "center",
+            alignContent:"center"
         }}
         key={id}
         // source={{ uri: item }}
 
-        source={require("../../assets/busa.png")}
+        source={require("../../assets/images/stephen.jpg")}
       />
     </TouchableOpacity>
   </View>
@@ -89,14 +109,19 @@ const images =[
 
 ]
   return (
-        <CustomFlatlist
-          data={images}
-          horizontal ={true}
-          showsHorizontalScrollIndicator={false}
-          keyExtractor={(index) => index.toString()}
-          renderItem={renderItem}
-          pagingEnabled ={true}
-        />
+
+    <
+    >
+
+      <CustomFlatlist
+        data={images}
+        horizontal ={true}
+        showsHorizontalScrollIndicator={false}
+        keyExtractor={(index) => index.toString()}
+        renderItem={renderItem}
+        pagingEnabled ={true}
+      />
+    </>
   );
 };
 
@@ -148,5 +173,31 @@ const EventItems = ({ event, theme }) => {
     </>
   );
 };
+
+
+const EventFooter =()=>{
+  return(
+    <View style={{width:imageW, paddingTop:7, }}>
+<Text numberOfLines={2} ellipsizeMode='tail' style={{fontFamily:"Poppins-Light"}}>Join me for my birthday this evening at 8:30pm dsbhdsdsgdhkdgdhkfghdfghdfdhgfdhfdghfdhgdgfdhgk</Text>
+
+<View style={{flexDirection:"row", justifyContent:"space-evenly", right:55, paddingTop:10}}>
+ <RenderIconWithNumber name={"heart"} number ={113}/>
+ <RenderIconWithNumber name={"comment"} number={36}/>  
+ {/* when you click on the above it should open a modal that would show comments */}
+ <RenderIconWithNumber name={"share"}/>
+</View>
+    </View>
+  )
+}
+
+
+const RenderIconWithNumber = ({name, number})=>{
+  return(
+    <View style={{flexDirection:"row"}}>
+      <ReusableIcon name={name} size={20}/>
+      <Text style={{left:5}}>{number}</Text>
+    </View>
+  )
+}
 
 export default ExploreCard

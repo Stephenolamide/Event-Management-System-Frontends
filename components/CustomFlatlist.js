@@ -1,14 +1,18 @@
 import {FlatList, View} from 'react-native'
-import React from 'react'
+import React, { useRef } from 'react'
 
 const CustomFlatlist = ({data,decelerationRate, vertical, showsVerticalScrollIndicator, renderItem, ref, keyExtractor, pagingEnabled, ListFooterComponent, onEndReached, onEndReachedThreshold, refreshing, horizontal, removeClippedSubviews, maxToRenderPerBatch, updateCellsBatchingPeriod, windowSize, getItemLayout, contentContainerStyle, showsHorizontalScrollIndicator}) => {
+  const flatListRef = useRef(null);
+  
+  
   return (
         <FlatList
+        ref={flatListRef}
         data ={data}
         renderItem ={renderItem}
         bounces ={false}
         keyExtractor = {keyExtractor}
-        ref ={ref}
+        // ref ={ref}
         ListFooterComponent ={ListFooterComponent}
         refreshing={refreshing}
         onEndReachedThreshold={onEndReachedThreshold}
@@ -19,7 +23,8 @@ const CustomFlatlist = ({data,decelerationRate, vertical, showsVerticalScrollInd
          windowSize={windowSize}
          getItemLayout={getItemLayout}
          contentContainerStyle={contentContainerStyle}
-         pagingEnabled={pagingEnabled}
+        //  pagingEnabled={pagingEnabled}
+        pagingEnabled
          horizontal={horizontal}
          showsHorizontalScrollIndicator={showsHorizontalScrollIndicator}
          showsVerticalScrollIndicator={showsVerticalScrollIndicator}
