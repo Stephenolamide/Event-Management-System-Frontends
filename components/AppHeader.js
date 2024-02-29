@@ -1,23 +1,22 @@
 import * as React from 'react';
 import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
-import CustomIcon from './CustomIcon';
 import {
   BORDERRADIUS,
-  COLORS,
   FONTFAMILY,
   FONTSIZE,
   SPACING,
 } from '../constants/theme';
 import { getTheme } from '../context/ThemeContext';
+import { ReusableIcon } from '../constants/icons';
 
 const AppHeader = (props) => {
  const {theme} = getTheme()
  const styles = getStyles(theme)
- 
+
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.iconBG} onPress={() => props.action()}>
-        <CustomIcon name={props.name} style={styles.iconStyle} />
+        <ReusableIcon name={props.name} style={styles.iconStyle} />
       </TouchableOpacity>
       <Text style={styles.headerText}>{props.header}</Text>
       <View style={styles.emptyContainer}></View>

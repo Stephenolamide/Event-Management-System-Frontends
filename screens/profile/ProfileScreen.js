@@ -60,7 +60,7 @@ const ProfileScreen = ({navigation}) => {
   );
 };
 
-const getStyles = (theme) =>StyleSheet.create({
+const getStyles = (theme) => StyleSheet.create({
   container: {
     display: 'flex',
     flex: 1,
