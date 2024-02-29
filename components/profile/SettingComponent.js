@@ -2,10 +2,15 @@ import * as React from 'react';
 import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 import { FONTFAMILY, FONTSIZE, SPACING } from '../../constants/theme';
 import {ReusableIcon } from '../../constants/icons';
+import customNavigation from '../../utils/navigationUtils';
+
+
 
 const SettingComponent = (props) => {
+
+  const {navigate} = customNavigation()
   return (
-<TouchableOpacity onPress={()=> NavigationHelpersContext()}>
+<TouchableOpacity onPress={()=> navigate(props.screenName)}>
     <View style={styles.container}>
       <View>
         <ReusableIcon name={props.icon} style={styles.iconStyle} />

@@ -5,8 +5,8 @@ import { theme, SPACING } from '../../constants/theme';
 import { getTheme } from '../../context/ThemeContext';
 
 const ProfileScreen = ({navigation}) => {
-
   const {theme} = getTheme()
+  const styles = getStyles(theme)
   return (
     <View style={styles.container}>
       <StatusBar hidden />
@@ -32,31 +32,35 @@ const ProfileScreen = ({navigation}) => {
           heading="Account"
           subheading="Edit Profile"
           subtitle="Change Password"
+          screenName =""
         />
         <SettingComponent
           icon="setting"
           heading="Settings"
           subheading="Theme"
           subtitle="Permissions"
+          screenName =""
         />
         <SettingComponent
-          icon="dollar"
+          icon="ticket"
           heading="Offers & Refferrals"
           subheading="Offer"
           subtitle="Refferrals"
+          screenName =""
         />
         <SettingComponent
           icon="info"
           heading="About"
           subheading="About Movies"
           subtitle="more"
+          screenName =""
         />
       </View>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
+const getStyles = (theme) =>StyleSheet.create({
   container: {
     display: 'flex',
     flex: 1,
