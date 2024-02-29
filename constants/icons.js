@@ -1,5 +1,6 @@
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { COLORS } from "./theme";
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5"
 
 
 
@@ -35,3 +36,13 @@ export const ChevDown = (style) => <Ionicons name="chevron-down-outline"size={20
 export const CalendarOutline = <Ionicons name="calendar" size={20} color="#717171" light/>
 export const Analytics = <Ionicons name="analytics" size={20} color="#717171" light/>
 export const BookOutline = <Ionicons name="book-outline" size={20} color="#717171" light/>
+
+
+
+
+
+
+// Font Awesome5
+
+
+export const ReusableIcon =({name, size, style, color, onPress})=><FontAwesome5 name={name} size={size} color={color} style={style} onPress={onPress}/>

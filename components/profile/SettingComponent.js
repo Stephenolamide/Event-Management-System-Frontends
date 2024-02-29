@@ -1,13 +1,14 @@
 import * as React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
-import CustomIcon from './CustomIcon';
-import { FONTSIZE } from '../../constants/theme';
+import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
+import { FONTFAMILY, FONTSIZE, SPACING } from '../../constants/theme';
+import {ReusableIcon } from '../../constants/icons';
 
 const SettingComponent = (props) => {
   return (
+<TouchableOpacity onPress={()=> NavigationHelpersContext()}>
     <View style={styles.container}>
       <View>
-        <CustomIcon name={props.icon} style={styles.iconStyle} />
+        <ReusableIcon name={props.icon} style={styles.iconStyle} />
       </View>
       <View style={styles.settingContainer}>
         <Text style={styles.title}>{props.heading}</Text>
@@ -15,9 +16,10 @@ const SettingComponent = (props) => {
         <Text style={styles.subtitle}>{props.subtitle}</Text>
       </View>
       <View style={styles.iconBG}>
-        <CustomIcon name={'arrow-right'} style={styles.iconStyle} />
+        <ReusableIcon name={'arrow-right'} style={styles.iconStyle} />
       </View>
     </View>
+</TouchableOpacity>
   );
 };
 
