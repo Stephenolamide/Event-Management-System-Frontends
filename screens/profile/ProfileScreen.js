@@ -8,21 +8,21 @@ import SettingComponent from '../../components/profile/SettingComponent';
 
 const ProfileScreen = ({navigation}) => {
   const {theme} = React.useContext(ThemeContext)
-
-  console.log(theme)
   const styles =  StyleSheet.create({
     container: {
       display: 'flex',
       flex: 1,
-      backgroundColor: theme.black,
+      backgroundColor: theme.white,
+      paddingTop:13
     },
     appHeaderContainer: {
       marginHorizontal: SPACING.space_36,
-      marginTop: SPACING.space_20 * 2,
+      marginTop: 10,
     },
     profileContainer: {
       alignItems: 'center',
-      padding: SPACING.space_36,
+      padding: 4,
+      top:-10
     },
     avatarImage: {
       height: 80,
@@ -33,7 +33,7 @@ const ProfileScreen = ({navigation}) => {
       fontFamily: "Poppins-SemiBold",
       fontSize: 16,
       marginTop: SPACING.space_16,
-      color: theme.white,
+      color: theme.black,
     },
   });
 
@@ -41,10 +41,10 @@ const ProfileScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <StatusBar hidden />
+      {/* <StatusBar hidden /> */}
       <View style={styles.appHeaderContainer}>
         <AppHeader
-          name="close"
+          name="arrow-left"
           header={'My Profile'}
           action={() => navigation.goBack()}
         />
@@ -55,7 +55,7 @@ const ProfileScreen = ({navigation}) => {
           source={require('../../assets/images/stephen.jpg')}
           style={styles.avatarImage}
         />
-        <Text style={styles.avatarText}>John Doe</Text>
+        <Text style={styles.avatarText}>Dada Stephen</Text>
       </View>
 
       <View style={styles.profileContainer}>
@@ -64,10 +64,10 @@ const ProfileScreen = ({navigation}) => {
           heading="Account"
           subheading="Edit Profile"
           subtitle="Change Password"
-          screenName =""
+          screenName ="HomeScreen"
         />
         <SettingComponent
-          icon="setting"
+          icon="gear"
           heading="Settings"
           subheading="Theme"
           subtitle="Permissions"
@@ -75,16 +75,16 @@ const ProfileScreen = ({navigation}) => {
         />
         <SettingComponent
           icon="ticket"
-          heading="Offers & Refferrals"
-          subheading="Offer"
+          heading="Ticket"
+          subheading="View Tickets"
           subtitle="Refferrals"
-          screenName =""
+          screenName ="TicketScreen"
         />
         <SettingComponent
           icon="info"
           heading="About"
-          subheading="About Movies"
-          subtitle="more"
+          subheading="About Efrica"
+          // subtitle="more"
           screenName =""
         />
       </View>
