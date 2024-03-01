@@ -1,7 +1,7 @@
 import {FlatList, View} from 'react-native'
 import React, { useRef } from 'react'
 
-const CustomFlatlist = ({data,decelerationRate, vertical, showsVerticalScrollIndicator, renderItem, ref, keyExtractor, pagingEnabled, ListFooterComponent, onEndReached, onEndReachedThreshold, refreshing, horizontal, removeClippedSubviews, maxToRenderPerBatch, updateCellsBatchingPeriod, windowSize, getItemLayout, contentContainerStyle, showsHorizontalScrollIndicator}) => {
+const CustomFlatlist = ({data,decelerationRate, snapToInterval,vertical, showsVerticalScrollIndicator, renderItem, ref, keyExtractor, pagingEnabled, ListFooterComponent, onEndReached, onEndReachedThreshold, refreshing, horizontal, removeClippedSubviews, maxToRenderPerBatch, updateCellsBatchingPeriod, windowSize, getItemLayout, contentContainerStyle, showsHorizontalScrollIndicator}) => {
   const flatListRef = useRef(null);
   
   
@@ -30,6 +30,7 @@ const CustomFlatlist = ({data,decelerationRate, vertical, showsVerticalScrollInd
          showsVerticalScrollIndicator={showsVerticalScrollIndicator}
          vertical ={vertical}
          decelerationRate={decelerationRate}
+         snapToInterval={snapToInterval}
         />
   )
 }

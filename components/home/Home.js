@@ -4,7 +4,7 @@ import CustomFlatlist from '../CustomFlatlist';
 import ExploreCard from '../explore/ExploreCard';
 import { height } from '../../utils/dimensionUtils';
 
-const Home = (ref, props) => {
+const Home = () => {
   const flatListRef = useRef(null);
 
 const imageH = height*0.56
@@ -66,6 +66,7 @@ const imageH = height*0.56
     }
   ]
   return (
+    
         <CustomFlatlist
       // ref={flatListRef}
            // onScrollToTop={handleRefresh} // for ios
@@ -84,6 +85,10 @@ const imageH = height*0.56
           //  maxToRenderPerBatch={10}
           //  getItemLayout={(data, index)=>({length:imageH, index})}
           contentContainerStyle={{height:imageH*events.length}}
+          pagingEnabled={true}
+          decelerationRate={"normal"}
+          bounces={false}
+          snapToInterval={height*0.52}
          />
 
   )

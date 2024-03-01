@@ -6,12 +6,13 @@ import ProfileContainer from '../ProfileContainer'
 import { Divider } from 'react-native-elements'
 import { width } from '../../utils/dimensionUtils'
 import Home from './Home'
+import BottomSheet from '../BottomSheet'
 
 const HomeComponent = () => {
   return (
 <CustomSafeAreaView style={{top:30}}>
     <View 
-    style={{left:30}}
+    style={{left:24}}
     >
       <View style={{flexDirection:"row", justifyContent:"space-around"}}>
       <Text style={{fontFamily:"Poppins-Medium", fontSize:30, right:30}}>BuzzFeed</Text>
@@ -22,6 +23,11 @@ const HomeComponent = () => {
 <Divider style={{bottom:26, right:20}}/>
       </View>
       <Home/>
+
+      <BottomSheet
+      activeHeight={100}
+      style={{width:width}}
+      />
     </View>
 </CustomSafeAreaView>
   )
