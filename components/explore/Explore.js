@@ -47,7 +47,7 @@ const Explore = forwardRef((ref, props) => {
   ]
   return (
         <CustomFlatlist
-      ref={flatListRef}
+      // ref={flatListRef}
            // onScrollToTop={handleRefresh} // for ios
            onEndReachedThreshold={0.1}
            onEndReached={getEventData}

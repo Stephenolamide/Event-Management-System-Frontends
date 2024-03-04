@@ -38,7 +38,7 @@ const Events = ({ event, screen, style}) => {
     // <CustomSafeAreaView style={[{ padding:10, top:-10}, style]}>
 
     <View 
-    style={{height:height*0.52,}}
+    style={{height: screen === "HomeScreen" ? height*0.52 : height *0.33,}}
     >
 {screen === "HomeScreen" &&
  <View style ={{flexDirection:"row", top:5}}>
@@ -65,7 +65,7 @@ const Events = ({ event, screen, style}) => {
 
 const EventImage = ({ event, navigation, theme, screen }) => {
  
-const renderItem =({ item }, id) => {
+const renderItem =({ item}, screen, id) => {
   return (
   <View
   style={{
@@ -73,7 +73,8 @@ const renderItem =({ item }, id) => {
     height: imageH,
     width: imageW*1.13,
     // borderRadius:20,
-    backgroundColor:"transparent"
+    backgroundColor:"transparent",
+    left: screen === "ExploreScreen" && 25
   }}
   >
     <TouchableOpacity
@@ -126,7 +127,7 @@ const images =[
         horizontal ={true}
         showsHorizontalScrollIndicator={false}
         keyExtractor={(index) => index.toString()}
-        renderItem={renderItem}
+        renderItem={renderItem(screen)}
         pagingEnabled ={true}
       />
     </>

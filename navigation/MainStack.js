@@ -10,6 +10,7 @@ import ProfileStack from "./profile/ProfileStack"
 
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import ExploreStack from "./explore/ExploreStack";
+import PlannerStack from "./planner/PlannerStack";
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -86,9 +87,9 @@ const TabNavigator = () => {
           })(route),
         })}
       />
-      {/* <Tab.Screen name="Explore" component={ExploreStack} headerShown={true} /> 
-      <Tab.Screen name="Planner" component={ProfileStack} headerShown={true} />  */}
-      {/* <Tab.Screen name="Profile" component={ProfileStack} headerShown={true} />  */}
+      <Tab.Screen name="Explore" component={ExploreStack} headerShown={true} /> 
+      <Tab.Screen name="Planner" component={PlannerStack} headerShown={true} />  
+      <Tab.Screen name="Profile" component={ProfileStack} headerShown={true} /> 
     </Tab.Navigator>
 
     //  </NavigationContainer>
