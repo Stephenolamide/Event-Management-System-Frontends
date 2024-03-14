@@ -21,5 +21,3 @@ const PlannerStack = () => {
 }
 
 export default PlannerStack
-
-const styles = StyleSheet.create({})
