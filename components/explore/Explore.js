@@ -10,7 +10,7 @@ const Explore = forwardRef((ref, props) => {
 
   const renderItem = useCallback(
     ({ item }) => (
-      <ExploreCard event={item} key={item.id}/>
+      <ExploreCard event={item} key={item.id} screen={"ExploreScreen"}/>
     ),
   );
 

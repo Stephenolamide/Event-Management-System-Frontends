@@ -4,6 +4,8 @@ import FontAwesome5 from "react-native-vector-icons/FontAwesome5"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { useContext} from "react";
 import { ThemeContext } from "../context/ThemeContext";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+
 
 import { HomeStack } from "./home/HomeStack";
 import ProfileStack from "./profile/ProfileStack"
@@ -11,6 +13,8 @@ import ProfileStack from "./profile/ProfileStack"
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import ExploreStack from "./explore/ExploreStack";
 import PlannerStack from "./planner/PlannerStack";
+import FontAwesome6Icon from "react-native-vector-icons/FontAwesome6";
+import EventScheduleStack from "./EventScheduleStack";
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -73,7 +77,7 @@ const TabNavigator = () => {
         
       })}
     >
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Home"
         component={HomeStack}
         options={({ route }) => ({
@@ -86,14 +90,65 @@ const TabNavigator = () => {
             }
           })(route),
         })}
-      />
-      <Tab.Screen name="Explore" component={ExploreStack} headerShown={true} /> 
+      /> */}
+      {/* <Tab.Screen name="Explore" component={ExploreStack} headerShown={true} />  */}
       <Tab.Screen name="Planner" component={PlannerStack} headerShown={true} />  
-      <Tab.Screen name="Profile" component={ProfileStack} headerShown={true} /> 
+      {/* <Tab.Screen name="Profile" component={ProfileStack} headerShown={true} />  */}
     </Tab.Navigator>
 
     //  </NavigationContainer>
   );
 };
 
+
+
+
+
+
+
+export function MainStack() {
+  const { theme } = useContext(ThemeContext);
+  return (
+    <Drawer.Navigator
+      screenOptions={({ route }) => ({
+        headerShown: false,
+        drawerIcon: ({ focused, color }) => {
+          let iconName;
+
+          if (route.name === "Feed") {
+            iconName = focused ? "newspaper" : "newspaper";
+          }
+          else if (route.name === "Event Schedule") {
+            iconName = focused ? "calendar" : "calendar";
+          }
+
+          return (
+            <FontAwesome6Icon
+              name={iconName}
+              size={25}
+              color={focused ? color : theme.iconColor}
+            />
+          );
+        },
+        drawerActiveBackgroundColor: theme.white,
+        // drawerInactiveBackgroundColor: "#f9f9f9",
+        drawerActiveTintColor: "#3445EA",
+        drawerInactiveTintColor: theme.drawerInactiveTintColor,
+        drawerLabelStyle: {
+          fontFamily: "Jakarta",
+          fontSize: 15,
+          fontWeight: "400",
+          lineHeight: 21,
+          marginVertical: 10,
+          marginLeft: -18,
+        },
+        drawerStyle: { width: 250 },
+      })}
+      drawerContent={(props) => <CustomDrawer {...props} />}
+    >
+      <Drawer.Screen name="Feed" component={TabNavigator} />
+      <Drawer.Screen name="EventSchedule" component={EventScheduleStack} />
+    </Drawer.Navigator>
+  );
+}
 

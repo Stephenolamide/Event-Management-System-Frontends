@@ -65,7 +65,9 @@ const Events = ({ event, screen, style}) => {
 
 const EventImage = ({ event, navigation, theme, screen }) => {
  
-const renderItem =({ item}, screen, id) => {
+const renderItem =({ item},  id) => {
+
+  const screenType = screen
   return (
   <View
   style={{
@@ -74,7 +76,7 @@ const renderItem =({ item}, screen, id) => {
     width: imageW*1.13,
     // borderRadius:20,
     backgroundColor:"transparent",
-    left: screen === "ExploreScreen" && 25
+    left: screenType === "ExploreScreen" && 10
   }}
   >
     <TouchableOpacity
@@ -127,7 +129,7 @@ const images =[
         horizontal ={true}
         showsHorizontalScrollIndicator={false}
         keyExtractor={(index) => index.toString()}
-        renderItem={renderItem(screen)}
+        renderItem={renderItem}
         pagingEnabled ={true}
       />
     </>
