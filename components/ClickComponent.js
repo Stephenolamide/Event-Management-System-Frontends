@@ -18,11 +18,11 @@ const ClickComponent = ({first, second, styles}) => {
       return (
         <View style={[{ flexDirection: 'row', justifyContent: 'space-evenly', paddingTop: 33 }, styles]}>
           <TouchableOpacity  onPress={handleNewestClick}>
-            <Text style={{ fontFamily: 'Poppins-Medium', fontSize: 16, color: clicked ? 'blue' : 'black', textDecorationLine: clicked ? "underline":"none",}}>{first}</Text>
+            <Text style={{ fontFamily: 'PoppinsMedium', fontSize: 16, color: clicked ? 'blue' : 'black', textDecorationLine: clicked ? "underline":"none",}}>{first}</Text>
           </TouchableOpacity>
     
           <TouchableOpacity  onPress={handleUpcomingClick}>
-            <Text style={{ fontFamily: 'Poppins-Medium', fontSize: 16, color: userClick ? 'blue' : 'black', textDecorationLine: userClick ? "underline":"none"}}>{second}</Text>
+            <Text style={{ fontFamily: 'PoppinsMedium', fontSize: 16, color: userClick ? 'blue' : 'black', textDecorationLine: userClick ? "underline":"none"}}>{second}</Text>
           </TouchableOpacity>
         </View>
       );

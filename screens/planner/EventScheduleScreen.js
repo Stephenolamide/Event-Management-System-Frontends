@@ -17,6 +17,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 import client from "../../api/client";
 import { List, data } from "../../constants/Data";
 import { timeSlot } from "../../data/timeSlot";
+import { Back } from "../../constants/icons";
   const { width, height } = Dimensions.get("screen");
   
   const EventScheduleScreen = () => {
@@ -68,6 +69,9 @@ import { timeSlot } from "../../data/timeSlot";
   
         //   const timetable = res.data.data.weekTimeTable;
           setTimetableData(data.data.weekTimeTable);
+
+
+          console.log(timetableData)
         }
       } catch (e) {
     
@@ -220,7 +224,7 @@ import { timeSlot } from "../../data/timeSlot";
         {isLoading ? (
           <View style={{ paddingTop: 60 }}>
             <AnimatedLottieView
-              source={require("../assets/animations/loading.json")}
+              source={require("../../assets/animations/loading.json")}
               autoPlay
               loop
               speed={0.5}
@@ -235,7 +239,7 @@ import { timeSlot } from "../../data/timeSlot";
           !isLoading ? (
           <View style={{alignSelf:"center"}}>
              <AnimatedLottieView
-                      source={require("../assets/animations/empty.json")}
+                      source={require("../../assets/animations/empty.json")}
                       style={{
                         width: 300,
                         height: 300,
@@ -246,7 +250,7 @@ import { timeSlot } from "../../data/timeSlot";
                       autoPlay
                     />
                     <View style={{alignItems:"center"}}>
-            <Text style={styles.text}>No timetable</Text>
+            <Text style={styles.text}>No events</Text>
             {userInfo?.role === 4 && 
             <TouchableOpacity
             activeOpacity={0.7}
@@ -267,7 +271,7 @@ import { timeSlot } from "../../data/timeSlot";
               {dayData.classes.length === 0 && 
               <View style={{paddingTop:40, position:"absolute", alignSelf:"center",}}>
               <AnimatedLottieView
-              source={require("../assets/animations/exams.json")}
+              source={require("../../assets/animations/exams.json")}
               autoPlay
               loop
               speed={0.5}

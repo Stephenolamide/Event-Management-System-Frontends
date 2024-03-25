@@ -4,7 +4,7 @@ import CustomFlatlist from '../CustomFlatlist';
 import ExploreCard from '../explore/ExploreCard';
 import { height } from '../../utils/dimensionUtils';
 
-const Home = () => {
+const Home = ({screen}) => {
   const flatListRef = useRef(null);
 
 const imageH = height*0.56
@@ -13,7 +13,7 @@ const imageH = height*0.56
 
   const renderItem = useCallback(
     ({ item }) => (
-      <ExploreCard event={item} key={item.id} screen={"HomeScreen"} style={{right:10}}/>
+      <ExploreCard event={item} key={item.id} screen={screen} style={{right:10}}/>
     ),
   );
 
@@ -73,7 +73,7 @@ const imageH = height*0.56
           //  onEndReachedThreshold={0.1}
           //  onEndReached={getEventData}
            showsVerticalScrollIndicator={false}
-           data={events}
+           data={ screen === "UserPostsScreen"? events.slice(0,1): events}
           vertical={true}
           //  decelerationRate={"fast"}
            // ListFooterComponent={renderFooter}
@@ -84,7 +84,7 @@ const imageH = height*0.56
            // onRefresh={handleRefresh}
           //  maxToRenderPerBatch={10}
           //  getItemLayout={(data, index)=>({length:imageH, index})}
-          contentContainerStyle={{height:imageH*events.length}}
+          contentContainerStyle={{       height: screen !== "UserPostsScreen" && imageH*events.length}}
           pagingEnabled={true}
           decelerationRate={"normal"}
           bounces={false}

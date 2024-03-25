@@ -37,7 +37,7 @@ const TicketTitle = ({ ticket, theme}) => {
             fontSize: 20,
             fontWeight: "600",
             color: "rgba(47.66, 47.66, 47.66, 1)",
-            fontFamily: "Poppins-Bold",
+            fontFamily: "PoppinsBold",
           }}
         >
           {ticket.title}
@@ -47,7 +47,7 @@ const TicketTitle = ({ ticket, theme}) => {
             fontSize: 12,
             textAlign: "center",
             color: "rgba(112.62, 112.62, 112.62, 1)",
-            fontFamily: "Poppins-Light",
+            fontFamily: "PoppinsLight",
             width: 250,
           }}
         >
@@ -83,7 +83,7 @@ const TicketDescription = ({ ticket , theme}) => {
           alignSelf: "center",
           textAlign: "center",
           color: "rgba(112.62, 112.62, 112.62, 1)",
-          fontFamily: "Poppins-Light",
+          fontFamily: "PoppinsLight",
         }}
       >
         The qr code is one-time and would be unusable after its scanned

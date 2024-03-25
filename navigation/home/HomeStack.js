@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import client from "../../api/client";
 import { Platform } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import UserPostsScreen from "../../screens/UserPostsScreen";
 // import moment from "moment";
 
 
@@ -175,6 +176,7 @@ export function HomeStack() {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
 
       <Stack.Screen component={HomeScreen} name="HomeScreen" />
+      <Stack.Screen component={UserPostsScreen} name="UserPostsScreen"/>
     </Stack.Navigator>
   );
 }

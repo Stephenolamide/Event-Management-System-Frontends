@@ -3,7 +3,7 @@ import React from 'react'
 import { getTheme } from '../context/ThemeContext'
 import { SPACING } from '../constants/theme'
 
-const ProfileContainer = ({name, height, width, style}) => {
+const ProfileContainer = ({name, height, width, style, onPress}) => {
 
 const {theme} = getTheme()
     const styles = StyleSheet.create({
@@ -18,14 +18,14 @@ const {theme} = getTheme()
             borderRadius: 80,
           },
           avatarText: {
-            fontFamily: "Poppins-SemiBold",
+            fontFamily: "PoppinsSemiBold",
             fontSize: 16,
             marginTop: SPACING.space_16,
             color: theme.black,
           },
     })
   return (
-    <View style={[styles.profileContainer, style]}>
+    <View style={[styles.profileContainer, style]} onTouchEnd={onPress}>
     <Image
       source={require('../assets/images/stephen.jpg')}
       style={styles.avatarImage}

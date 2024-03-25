@@ -31,7 +31,7 @@ const ProfileScreen = ({navigation}) => {
       borderRadius: 80,
     },
     avatarText: {
-      fontFamily: "Poppins-SemiBold",
+      fontFamily: "PoppinsSemiBold",
       fontSize: 16,
       marginTop: SPACING.space_16,
       color: theme.black,

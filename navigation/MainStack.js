@@ -15,19 +15,23 @@ import ExploreStack from "./explore/ExploreStack";
 import PlannerStack from "./planner/PlannerStack";
 import FontAwesome6Icon from "react-native-vector-icons/FontAwesome6";
 import EventScheduleStack from "./EventScheduleStack";
+import CustomDrawer from "../components/CustomDrawer";
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-export function MainStack() {
-	return (
-		<Stack.Navigator
-			// initialRouteName="verify"
-			screenOptions={{ headerShown: false }}
-		>
-			 <Stack.Screen component={TabNavigator} name="Tabs" />
-		</Stack.Navigator>
-	);
-}
+// export function MainStack() {
+// 	return (
+// 		<Stack.Navigator
+// 			// initialRouteName="verify"
+// 			screenOptions={{ headerShown: false }}
+// 		>
+// 			 <Stack.Screen component={TabNavigator} name="Tabs" />
+// 		</Stack.Navigator>
+// 	);
+// }
+
+const Drawer = createDrawerNavigator();
+
 
 const TabNavigator = () => {
   const { theme } = useContext(ThemeContext);
@@ -77,7 +81,7 @@ const TabNavigator = () => {
         
       })}
     >
-      {/* <Tab.Screen
+      <Tab.Screen
         name="Home"
         component={HomeStack}
         options={({ route }) => ({
@@ -90,10 +94,10 @@ const TabNavigator = () => {
             }
           })(route),
         })}
-      /> */}
-      {/* <Tab.Screen name="Explore" component={ExploreStack} headerShown={true} />  */}
+      />
+      <Tab.Screen name="Explore" component={ExploreStack} headerShown={true} /> 
       <Tab.Screen name="Planner" component={PlannerStack} headerShown={true} />  
-      {/* <Tab.Screen name="Profile" component={ProfileStack} headerShown={true} />  */}
+      <Tab.Screen name="Profile" component={ProfileStack} headerShown={true} /> 
     </Tab.Navigator>
 
     //  </NavigationContainer>

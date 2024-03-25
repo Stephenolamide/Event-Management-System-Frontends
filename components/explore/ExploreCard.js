@@ -14,18 +14,18 @@ const imageH = height*0.3
 const imageW = width * 0.89
 
 
-const ExploreCard = ({event, screen, style}) => {
+const ExploreCard = ({event, screen, style, type}) => {
   return (
 
 <>
-<Events event ={event} screen={screen} style={style}/>
+<Events event ={event} screen={screen} style={style} type={type}/>
 </>
   )
 }
 
 
 
-const Events = ({ event, screen, style}) => {
+const Events = ({ event, screen, type}) => {
   const navigation = useNavigation();
   
   const { theme } = getTheme();
@@ -38,15 +38,15 @@ const Events = ({ event, screen, style}) => {
     // <CustomSafeAreaView style={[{ padding:10, top:-10}, style]}>
 
     <View 
-    style={{height: screen === "HomeScreen" ? height*0.52 : height *0.33,}}
+    style={{height: screen === "HomeScreen" ? height*0.52 : screen === "UserPostsScreen" ? height*0.41:height *0.33,}}
     >
-{screen === "HomeScreen" &&
+{screen === "HomeScreen" && screen !== "UserPostsScreen" &&
  <View style ={{flexDirection:"row", top:5}}>
   <ProfileContainer width={40} height={40} style={{top:-10}}/>
 
   <View style={{left:10,top:-8 }}>
-<Text style={{fontFamily:"Poppins-SemiBold"}}>Cubana cafe</Text>
-<Text style={{fontFamily:"Poppins-Light"}}>16m ago</Text>
+<Text style={{fontFamily:"PoppinsSemiBold"}}>Cubana cafe</Text>
+<Text style={{fontFamily:"PoppinsLight"}}>16m ago</Text>
 </View>
   </View>
  }
@@ -55,8 +55,8 @@ const Events = ({ event, screen, style}) => {
  style={{bottom: screen === "HomeScreen" && 30 }}
  >
       <EventImage event={event} navigation={navigation} theme={theme} screen={screen}/>
-      { screen !== "HomeScreen" && <EventItems event={event} theme={theme} screen={screen}/>}
-      {screen === "HomeScreen" && <EventFooter event={event} theme={theme} screen={screen}/>}
+      {(screen !== "HomeScreen" && screen !== "UserPostsScreen")  && <EventItems event={event} theme={theme} screen={screen}/>}
+      {(screen === "HomeScreen" || screen === "UserPostsScreen") && <EventFooter event={event} theme={theme} screen={screen}/>}
  </View>
  </View>
     // </CustomSafeAreaView>
@@ -76,7 +76,8 @@ const renderItem =({ item},  id) => {
     width: imageW*1.13,
     // borderRadius:20,
     backgroundColor:"transparent",
-    left: screenType === "ExploreScreen" && 10
+    left: screenType === "ExploreScreen" ? 10 : screenType === "UserPostsScreen" && 7
+    // left:12
   }}
   >
     <TouchableOpacity
@@ -162,7 +163,7 @@ const EventItems = ({ event, theme }) => {
             fontWeight: "800",
             paddingTop: 5,
             fontSize: 27,
-            fontFamily: "Poppins-Bold",
+            fontFamily: "PoppinsBold",
             color: theme.black,
           }}
         >
@@ -175,7 +176,7 @@ const EventItems = ({ event, theme }) => {
             color: theme.offgray,
             alignSelf: "center",
             bottom: 5,
-            fontFamily: "Poppins-SemiBold",
+            fontFamily: "PoppinsSemiBold",
           }}
         >
           {/* {formattedDMonth}  */} DEC
@@ -186,7 +187,7 @@ const EventItems = ({ event, theme }) => {
 };
 
 
-const EventFooter = ()=>{
+const EventFooter = ({screen})=>{
   const [bottomSheetActive, setBottomSheetActive] = useState(false)
 
   const bottomSheetRef = useRef()
@@ -206,8 +207,10 @@ const EventFooter = ()=>{
 
     <>
     <View style={{width:imageW, paddingTop:7, }}>
-<Text numberOfLines={2} ellipsizeMode='tail' style={{fontFamily:"Poppins-Light"}}>Join me for my birthday this evening at 8:30pm dsbhdsdsgdhkdgdhkfghdfghdfdhgfdhfdghfdhgdgfdhgk</Text>
+<Text numberOfLines={2} ellipsizeMode='tail' style={{fontFamily:"PoppinsLight"}}>Join me for my birthday this evening at 8:30pm dsbhdsdsgdhkdgdhkfghdfghdfdhgfdhfdghfdhgdgfdhgk</Text>
 
+
+{
 <View style={{flexDirection:"row", justifyContent:"space-evenly", right:55, paddingTop:10}}>
  <RenderIconWithNumber name={"heart"} number ={113}/>
  <RenderIconWithNumber name={"comment"} number={36}
@@ -217,6 +220,7 @@ const EventFooter = ()=>{
  {/* when you click on the above it should open a modal that would show comments */}
  <RenderIconWithNumber name={"share"}/>
 </View>
+}
     </View> 
     </>
   )

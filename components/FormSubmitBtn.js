@@ -20,7 +20,7 @@ export const FormSubmitBtn = ({ title, onPress, submitting, disabled, style }) =
 					color: theme.whites,
 					fontWeight: "500",
 					fontSize: 16,
-					fontFamily:"Poppins-SemiBold"
+					fontFamily:"PoppinsSemiBold"
 				}}
 			>
 				{title}

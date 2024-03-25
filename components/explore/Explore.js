@@ -2,15 +2,13 @@ import React, {forwardRef, useCallback, useRef} from 'react'
 import { getEventData } from '../../utils/explore/exploreFunctions';
 import CustomFlatlist from '../CustomFlatlist';
 import ExploreCard from './ExploreCard';
-import { View } from 'react-native-web';
 
-const Explore = forwardRef((ref, props) => {
-  const flatListRef = useRef(null);
 
+const Explore = ({screen}) => {
 
   const renderItem = useCallback(
     ({ item }) => (
-      <ExploreCard event={item} key={item.id} screen={"ExploreScreen"}/>
+      <ExploreCard event={item} key={item.id} screen={screen}/>
     ),
   );
 
@@ -52,7 +50,7 @@ const Explore = forwardRef((ref, props) => {
            onEndReachedThreshold={0.1}
            onEndReached={getEventData}
            showsVerticalScrollIndicator={false}
-           data={events}
+           data={ screen === "UserPostsScreen"? events.slice(0,1) : events}
           vertical={true}
            decelerationRate={"fast"}
            // ListFooterComponent={renderFooter}
@@ -64,7 +62,7 @@ const Explore = forwardRef((ref, props) => {
          />
 
   )
-})
+}
 
 export default Explore
 

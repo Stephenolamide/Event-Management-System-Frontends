@@ -26,9 +26,9 @@ style={{right:-20}}
 />
 </View>
 <ClickComponent first={"Newest"} second ={"Upcoming"}/>
-<Text style={{fontFamily:"Poppins-SemiBold", fontSize:18, color:theme.black, left:10, paddingTop:10}}>Today</Text>
+<Text style={{fontFamily:"PoppinsSemiBold", fontSize:18, color:theme.black, left:10, paddingTop:10}}>Today</Text>
   
-<Explore/>
+<Explore screen={"ExploreScreen"}/>
   </View>
   )
 }
