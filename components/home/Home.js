@@ -84,7 +84,7 @@ const imageH = height*0.56
            // onRefresh={handleRefresh}
           //  maxToRenderPerBatch={10}
           //  getItemLayout={(data, index)=>({length:imageH, index})}
-          contentContainerStyle={{       height: screen !== "UserPostsScreen" && imageH*events.length}}
+          contentContainerStyle={{height: screen !== "UserPostsScreen" && imageH*events.length}}
           pagingEnabled={true}
           decelerationRate={"normal"}
           bounces={false}

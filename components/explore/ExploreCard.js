@@ -9,23 +9,28 @@ import { ReusableIcon } from '../../constants/icons'
 import ProfileContainer from '../ProfileContainer'
 import BottomSheet from '../BottomSheet'
 
+import moment from 'moment'
+
 
 const imageH = height*0.3
 const imageW = width * 0.89
 
 
 const ExploreCard = ({event, screen, style, type}) => {
+  const time = event.addedAt;
+  const date = moment(time).format("MMM D, YYYY");
+
   return (
 
 <>
-<Events event ={event} screen={screen} style={style} type={type}/>
+<Events event ={event} screen={screen} style={style} type={type} date={date}/>
 </>
   )
 }
 
 
 
-const Events = ({ event, screen, type}) => {
+const Events = ({ event, screen, type, date}) => {
   const navigation = useNavigation();
   
   const { theme } = getTheme();
@@ -63,7 +68,7 @@ const Events = ({ event, screen, type}) => {
   );
 };
 
-const EventImage = ({ event, navigation, theme, screen }) => {
+const EventImage = ({ event, navigation, theme, screen, date }) => {
  
 const renderItem =({ item},  id) => {
 
@@ -82,17 +87,25 @@ const renderItem =({ item},  id) => {
   >
     <TouchableOpacity
       activeOpacity={1}
-      // onPress={() =>
-      //   navigation.navigate("EventDetails", {
-      //     image: event.images,
-      //     title: event.title,
-      //     date: event.date,
-      //     time: event.time,
-      //     venue: event.venue,
-      //     ticketPrice: event.ticketPrice,
-      //     content: event.content,
-      //   })
-      // }
+      onPress={() =>
+      screen === "HomeScreen"?
+      navigation.navigate("PostDetails",{
+        image:event.images,
+        title:event.title,
+        date:date,
+        content:event.content
+
+      }):
+      navigation.navigate("ExploreDetails", {
+          image: event.images,
+          title: event.title,
+          date: event.date,
+          time: event.time,
+          venue: event.venue,
+          ticketPrice: event.ticketPrice,
+          content: event.content,
+        })
+      }
     >
       <Image
         style={{

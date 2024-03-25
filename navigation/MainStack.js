@@ -16,6 +16,7 @@ import PlannerStack from "./planner/PlannerStack";
 import FontAwesome6Icon from "react-native-vector-icons/FontAwesome6";
 import EventScheduleStack from "./EventScheduleStack";
 import CustomDrawer from "../components/CustomDrawer";
+import { DashboardScreen } from "../screens/DashboardScreen";
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -122,7 +123,10 @@ export function MainStack() {
           if (route.name === "Feed") {
             iconName = focused ? "newspaper" : "newspaper";
           }
-          else if (route.name === "Event Schedule") {
+          else if (route.name === "EventSchedule") {
+            iconName = focused ? "calendar" : "calendar";
+          }
+          else if (route.name === "Dashboard") {
             iconName = focused ? "calendar" : "calendar";
           }
 
@@ -152,6 +156,8 @@ export function MainStack() {
     >
       <Drawer.Screen name="Feed" component={TabNavigator} />
       <Drawer.Screen name="EventSchedule" component={EventScheduleStack} />
+    <Drawer.Screen name="Dashboard" component={DashboardScreen} />
+
     </Drawer.Navigator>
   );
 }

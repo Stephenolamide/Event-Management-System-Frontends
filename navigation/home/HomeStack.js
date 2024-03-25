@@ -6,6 +6,7 @@ import client from "../../api/client";
 import { Platform } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import UserPostsScreen from "../../screens/UserPostsScreen";
+import PostDetailsScreen from "../../screens/home/PostDetailsScreen"
 // import moment from "moment";
 
 
@@ -15,6 +16,8 @@ export function HomeStack() {
   const [appFirstLaunched, setAppFirstLaunched] = useState(null);
   const [userInfo, setUserInfo] = useState(null);
   const [userToken, setUserToken] = useState(null);
+
+
 
   // const checkForFirstTimeLoading = async () => {
   //   const appData = await AsyncStorage.getItem("appFirstLaunched");
@@ -177,6 +180,8 @@ export function HomeStack() {
 
       <Stack.Screen component={HomeScreen} name="HomeScreen" />
       <Stack.Screen component={UserPostsScreen} name="UserPostsScreen"/>
+      <Stack.Screen component={PostDetailsScreen} name="PostDetails"/>
+
     </Stack.Navigator>
   );
 }
