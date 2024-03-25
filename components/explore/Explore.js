@@ -60,7 +60,7 @@ const Explore = ({screen}) => {
            renderItem={renderItem}
            // refreshing={isLoading && events.length === 0}
            // onRefresh={handleRefresh}
-          contentContainerStyle={{height:imageH*events.length}}
+          contentContainerStyle={{height: screen !== "UserPostsScreen" &&imageH*events.length}}
            pagingEnabled={true}
            snapToInterval={height*0.3}
          />

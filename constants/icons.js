@@ -8,9 +8,9 @@ export const Back = ({style, color, size, onPress}) => <Ionicons name="arrow-bac
 export const Person = <Ionicons name="person-outline" size={20} color="#717171" light />;
 export const User = <Ionicons name="user" size={25} color="#717171" light />;
 export const Notification = <Ionicons name="notifications-outline" size={20} color="#717171" light />;
-export const TicketIcon = <Ionicons name="qr-code-outline" size={20} color="#717171" light />;
+export const TicketIcon = <Ionicons name="qr-code-outline" size={20} color="#717171" light />;s
 export const Warning= ({style}) => <Ionicons name="ios-warning-outline" size={20} color="#717171" style={style} light />;
-export const Chat = <Ionicons name="ios-chatbubble-ellipses-outline" size={20} color="#717171" light />;
+export const Chat = <Ionicons name="chatbubble" size={20} color="#717171" light />;
 export const News = <Ionicons name="newspaper" size={25} color="#717171" />;
 export const Calendar = <Ionicons name="calendar-check" size={25} color="#717171" />;
 export const Ad = <Ionicons name="ad" size={20} color="#717171"/>;
@@ -36,13 +36,14 @@ export const ChevDown = (style) => <Ionicons name="chevron-down-outline"size={20
 export const CalendarOutline = <Ionicons name="calendar" size={20} color="#717171" light/>
 export const Analytics = <Ionicons name="analytics" size={20} color="#717171" light/>
 export const BookOutline = <Ionicons name="book-outline" size={20} color="#717171" light/>
+export const Remove = <Ionicons name="remove-circle" size={20} color="#C3C3C3" light/>
+export const Logout = <Ionicons name="log-out-sharp" size={20} color="#C3C3C3" light/>
 
 
 
 
 
 
-// Font Awesome5
 
-
+// Font Awesome6
 export const ReusableIcon =({name, size, style, color, onPress})=><FontAwesome6 name={name} size={size} color={color} style={style} onPress={onPress}/>
