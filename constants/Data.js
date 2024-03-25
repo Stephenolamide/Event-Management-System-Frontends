@@ -115,8 +115,6 @@ export const data = {
         ],
       },
     ],
-    course: "Computer Science",
-    group: "Group B",
     __v: 0,
   },
 };

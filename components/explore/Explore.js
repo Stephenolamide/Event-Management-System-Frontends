@@ -2,6 +2,7 @@ import React, {forwardRef, useCallback, useRef} from 'react'
 import { getEventData } from '../../utils/explore/exploreFunctions';
 import CustomFlatlist from '../CustomFlatlist';
 import ExploreCard from './ExploreCard';
+import { height } from '../../utils/dimensionUtils';
 
 
 const Explore = ({screen}) => {
@@ -12,7 +13,7 @@ const Explore = ({screen}) => {
     ),
   );
 
-
+  const imageH = height*0.39
   const events=[
     {
       id:1,
@@ -59,6 +60,9 @@ const Explore = ({screen}) => {
            renderItem={renderItem}
            // refreshing={isLoading && events.length === 0}
            // onRefresh={handleRefresh}
+          contentContainerStyle={{height:imageH*events.length}}
+           pagingEnabled={true}
+           snapToInterval={height*0.3}
          />
 
   )

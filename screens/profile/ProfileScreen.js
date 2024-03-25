@@ -462,7 +462,7 @@ const [userRole, setUserRole] = useState("")
       justifyContent: "center",
     },
     text: {
-      fontFamily: "Jakarta",
+      fontFamily: "PoppinsLight",
       fontSize: 20,
       fontWeight: "300",
       lineHeight: 30,
@@ -479,7 +479,7 @@ const [userRole, setUserRole] = useState("")
       padding: 10,
       height: 60,
       marginBottom: 15,
-      fontFamily: "Jakarta",
+      fontFamily: "PoppinsLight",
       top: 3,
       color: theme.black,
     },
@@ -493,7 +493,7 @@ const [userRole, setUserRole] = useState("")
           marginBottom: 30,
           color: theme.black,
           fontSize: Platform.OS === "android" ? 34 : 40,
-          fontFamily: "JakartaBold",
+          fontFamily: "PoppinsBold",
         }}
       >
         Profile
@@ -661,7 +661,7 @@ const [userRole, setUserRole] = useState("")
                   <Text
                     style={{
                       bottom: 7,
-                      fontFamily: "Jakarta",
+                      fontFamily: "PoppinsLight",
                       alignSelf: "center",
                       fontSize: 48,
                       color: theme.whites,
@@ -726,7 +726,7 @@ const [userRole, setUserRole] = useState("")
               <Text
                 style={{
                   fontWeight: "600",
-                  fontFamily: "JakartaBold",
+                  fontFamily: "PoppinsBold",
                   fontSize: 30,
                   color: theme.black,
                 }}
@@ -887,7 +887,7 @@ const [userRole, setUserRole] = useState("")
             >
               <Text
                 style={{
-                  fontFamily: "JakartaBold",
+                  fontFamily: "PoppinsBold",
                   fontSize: Platform.OS === "android" ? 20 : width * .06,
                   marginBottom: 8,
                   color:theme.black
@@ -897,7 +897,7 @@ const [userRole, setUserRole] = useState("")
               </Text>
               <Text
                 style={{
-                  fontFamily: "Jakarta",
+                  fontFamily: "PoppinsLight",
                   fontSize: Platform.OS === "android" ? 12 : width * .035,
                   color:theme.black
                   
@@ -907,7 +907,7 @@ const [userRole, setUserRole] = useState("")
               </Text>
               <Text
                 style={{
-                  fontFamily: "Jakarta",
+                  fontFamily: "PoppinsLight",
                   fontSize: Platform.OS === "android" ? 12 : width * .035,
                   color:theme.black
 
@@ -940,7 +940,7 @@ const [userRole, setUserRole] = useState("")
                   <Text
                     style={{
                       color: "#717171",
-                      fontFamily: "JakartaSemiBold",
+                      fontFamily: "PoppinsSemiBold",
                       fontSize: 16,
                     }}
                   >
@@ -975,7 +975,7 @@ const [userRole, setUserRole] = useState("")
                     <Text
                       style={{
                         color: "white",
-                        fontFamily: "JakartaSemiBold",
+                        fontFamily: "PoppinsSemiBold",
                         fontSize: 16,
                       }}
                     >
@@ -991,7 +991,7 @@ const [userRole, setUserRole] = useState("")
             <View style={{top:Platform.OS === "ios" ? -6:null}}>
               <Text
                 style={{
-                  fontFamily: "JakartaBold",
+                  fontFamily: "PoppinsBold",
                   fontSize: Platform.OS === "android" ? 20 : 26,
                   marginBottom: 8,
                 }}
@@ -1000,7 +1000,7 @@ const [userRole, setUserRole] = useState("")
               </Text>
               <Text
                 style={{
-                  fontFamily: "Jakarta",
+                  fontFamily: "PoppinsLight",
                   fontSize: Platform.OS === "android" ? 12 : width * .035,
                 }}
               >
@@ -1031,7 +1031,7 @@ const [userRole, setUserRole] = useState("")
                   <Text
                     style={{
                       color: "#717171",
-                      fontFamily: "JakartaSemiBold",
+                      fontFamily: "PoppinsSemiBold",
                       fontSize: 16,
                     }}
                   >
@@ -1069,7 +1069,7 @@ const [userRole, setUserRole] = useState("")
                     <Text
                       style={{
                         color: "white",
-                        fontFamily: "JakartaSemiBold",
+                        fontFamily: "PoppinsSemiBold",
                         fontSize: 16,
                       }}
                     >

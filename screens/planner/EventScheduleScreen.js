@@ -39,69 +39,79 @@ import { Back } from "../../constants/icons";
       getAllEvent();
     }, []));
   
-    const getAllEvent = async () => {
-      setIsLoading(true);
+    // const getAllEvent = async () => {
+    //   setIsLoading(true);
   
     
-      try {
-        const userToken = await AsyncStorage.getItem("userToken");
-        const value = await AsyncStorage.getItem("userInfo");
+    //   try {
+    //     const userToken = await AsyncStorage.getItem("userToken");
+    //     const value = await AsyncStorage.getItem("userInfo");
   
-        if (userToken !== null && value !== null) {
-          const userInfo = JSON.parse(value);
-          setUserToken(userToken);
-          setUserInfo(userInfo);
+    //     if (userToken !== null && value !== null) {
+    //       const userInfo = JSON.parse(value);
+    //       setUserToken(userToken);
+    //       setUserInfo(userInfo);
   
-          const token = userToken;
+    //       const token = userToken;
   
-          const config = {
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "content-type": "application/json",
-            },
-          };
+    //       const config = {
+    //         headers: {
+    //           Authorization: `Bearer ${token}`,
+    //           "content-type": "application/json",
+    //         },
+    //       };
   
-          const res = await client.get(
-            `/timetable/getTimetable/${userInfo._id}`,
-            config
-          );
+    //       const res = await client.get(
+    //         `/timetable/getTimetable/${userInfo._id}`,
+    //         config
+    //       );
 
   
-        //   const timetable = res.data.data.weekTimeTable;
-          setTimetableData(data.data.weekTimeTable);
+    //     //   const timetable = res.data.data.weekTimeTable;
+
+    //       setTimetableData(data.data.weekTimeTable);
 
 
-          console.log(timetableData)
-        }
-      } catch (e) {
+    //       console.log(timetableData)
+    //     }
+    //   } catch (e) {
     
-        if (
-          e.response.status === 401 &&
-          e.response.data.success === false &&
-          e.response.data.msg === "Session Expired"
-        ) {
-          try {
-            await getAccessToken();
-          } catch (e) {
-            setError(true);
-            setErrorMessage(
-              e.message === "Network Error"
-                ? e.message
-                : "Oops! Something went wrong. Please try again."
-            );
-          }
-        } else {
-          setError(true);
-          setErrorMessage(
-            e.message
-              ? e.message
-              : "Oops! Something went wrong. Please try again later."
-          );
-        }
-      } finally {
-        setIsLoading(false);
-      }
-    };
+    //     if (
+    //       e.response.status === 401 &&
+    //       e.response.data.success === false &&
+    //       e.response.data.msg === "Session Expired"
+    //     ) {
+    //       try {
+    //         await getAccessToken();
+    //       } catch (e) {
+    //         setError(true);
+    //         setErrorMessage(
+    //           e.message === "Network Error"
+    //             ? e.message
+    //             : "Oops! Something went wrong. Please try again."
+    //         );
+    //       }
+    //     } else {
+    //       setError(true);
+    //       setErrorMessage(
+    //         e.message
+    //           ? e.message
+    //           : "Oops! Something went wrong. Please try again later."
+    //       );
+    //     }
+    //   } finally {
+    //     setIsLoading(false);
+    //   }
+    // };
+
+
+
+    const getAllEvent = async()=>{
+    setTimetableData(data.data.weekTimeTable);
+
+    console.log(timetableData)
+
+    }
   
     const filterClassesByDay = (day) => {
       const newdata = timetableData.filter((dayData) => dayData.day === day);
@@ -109,13 +119,13 @@ import { Back } from "../../constants/icons";
     };
   
     useEffect(() => {
-      // Function to filter classes for the initial selected day
+      // Function to filter events for the initial selected day
       const filterInitialClasses = async() => {
         const mondayClasses = filterClassesByDay("Monday");
         setFilteredClasses(mondayClasses);
       };
   
-      // Ensure the timetableData is available before filtering initial classes
+      // Ensure the timetableData is available before filtering initial events
       if (isLoading) {
         filterInitialClasses();
       }
@@ -212,7 +222,7 @@ import { Back } from "../../constants/icons";
           </Text>
         </View>
   
-        {/* Render buttons to filter classes */}
+        {/* Render buttons to filter events */}
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {List.map((item) => {
             return <Categories item={item} key={item.name} />;
@@ -235,7 +245,7 @@ import { Back } from "../../constants/icons";
               }}
             />
           </View>
-        ) : timetableData.every((day) => day.classes.length === 0) &&
+        ) : timetableData.every((day) => day.events.length === 0) &&
           !isLoading ? (
           <View style={{alignSelf:"center"}}>
              <AnimatedLottieView
@@ -268,7 +278,7 @@ import { Back } from "../../constants/icons";
             return(
             <View key={dayIndex}>
               {/* Display time slots vertically */}
-              {dayData.classes.length === 0 && 
+              {dayData.events.length === 0 && 
               <View style={{paddingTop:40, position:"absolute", alignSelf:"center",}}>
               <AnimatedLottieView
               source={require("../../assets/animations/exams.json")}
@@ -314,7 +324,6 @@ import { Back } from "../../constants/icons";
                         fontSize: 14,
                         fontFamily: "PoppinsLight",
                         fontWeight: "400",
-                        wordWrap: "break-word",
                       }}
                     >
                       {time}
@@ -322,7 +331,7 @@ import { Back } from "../../constants/icons";
                   </View>
                 {/* here if the length is 0, just show no class today so that user won't be confused */}
                   {
-                  dayData.classes.map((eventData, classIndex, id) => {
+                  dayData.events.map((eventData, classIndex, id) => {
                     const diff =
                       parseInt(eventData.endTime.substr(0, 2)) -
                       parseInt(eventData.time.substr(0, 2));
@@ -337,7 +346,7 @@ import { Back } from "../../constants/icons";
                               borderLeftWidth: 5,
                               borderLeftColor:
                                 altColors[
-                                  (dayIndex * dayData.classes.length +
+                                  (dayIndex * dayData.events.length +
                                     classIndex) %
                                     alternatingColors.length
                                 ],
@@ -345,7 +354,7 @@ import { Back } from "../../constants/icons";
                               borderRadius: 7,
                               backgroundColor:
                                 alternatingColors[
-                                  (dayIndex * dayData.classes.length +
+                                  (dayIndex * dayData.events.length +
                                     classIndex) %
                                     alternatingColors.length
                                 ],

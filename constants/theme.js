@@ -198,15 +198,15 @@ export const FONTSIZE = {
 };
 
 export const FONTFAMILY = {
-  poppins_black: 'Poppins-Black',
-  poppins_bold: 'Poppins-Bold',
-  poppins_extrabold: 'Poppins-ExtraBold',
-  poppins_extralight: 'Poppins-ExtraLight',
-  poppins_light: 'Poppins-Light',
-  poppins_medium: 'Poppins-Medium',
-  poppins_regular: 'Poppins-Regular',
-  poppins_semibold: 'Poppins-SemiBold',
-  poppins_thin: 'Poppins-Thin',
+  poppins_black: 'PoppinsBlack',
+  poppins_bold: 'PoppinsBold',
+  poppins_extrabold: 'PoppinsExtraBold',
+  poppins_extralight: 'PoppinsExtraLight',
+  poppins_light: 'PoppinsLight',
+  poppins_medium: 'PoppinsMedium',
+  poppins_regular: 'PoppinsRegular',
+  poppins_semibold: 'PoppinsSemiBold',
+  poppins_thin: 'PoppinsThin',
 };
 
 

@@ -19,7 +19,7 @@ export const SettingsButton = ({ icon, ButtonName, iconLeft }) => {
           <Text
             style={{
               marginLeft: 20,
-              fontFamily: "JakartaMedium",
+              fontFamily: "PoppinsMedium",
               fontWeight: "400",
               fontSize: Platform.OS === "android" ? 14 : 17,
               color: theme.black,

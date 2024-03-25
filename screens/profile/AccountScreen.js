@@ -42,9 +42,9 @@ const AccountScreen = () => {
         <View style={{ flexDirection: "row", justifyContent: "space-between", }}>
           <View style={{flexDirection: "row", gap: 5, justifyContent: "center"}}>
             <Back size={24} color={theme.black} style={{alignSelf: "center"}} onPress={()=>navigation.goBack()} />
-            <Text style={{fontFamily: "JakartaBold", fontSize: 24, alignSelf: "center", color:theme.black }}>Account</Text>
+            <Text style={{fontFamily: "PoppinsBold", fontSize: 24, alignSelf: "center", color:theme.black }}>Account</Text>
           </View>
-          {/* <Text onPress={()=>navigation.navigate("verify",{email: userInfo?.email})} style={{fontFamily: "JakartaSemiBold", color: "#3445EA", fontSize: 14}}>Edit Details</Text> */}
+          {/* <Text onPress={()=>navigation.navigate("verify",{email: userInfo?.email})} style={{fontFamily: "PoppinsSemiBold", color: "#3445EA", fontSize: 14}}>Edit Details</Text> */}
         </View>
   
         <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{height:1000}}>
@@ -54,7 +54,7 @@ const AccountScreen = () => {
               style={{
                 paddingTop: 15,
                 color: "#C3C3C3",
-                fontFamily: "JakartaSemiBold",
+                fontFamily: "PoppinsSemiBold",
                 fontSize: 10,
               }}
             >
@@ -64,7 +64,7 @@ const AccountScreen = () => {
               style={{
                 paddingTop: 8,
                 color: theme.black,
-                fontFamily: "JakartaSemiBold",
+                fontFamily: "PoppinsSemiBold",
                 fontSize: 14,
               }}
             >
@@ -84,7 +84,7 @@ const AccountScreen = () => {
               style={{
                 paddingTop: 15,
                 color: "#C3C3C3",
-                fontFamily: "JakartaSemiBold",
+                fontFamily: "PoppinsSemiBold",
                 fontSize: 10,
               }}
             >
@@ -94,7 +94,7 @@ const AccountScreen = () => {
               style={{
                 paddingTop: 8,
                 color: theme.black,
-                fontFamily: "JakartaSemiBold",
+                fontFamily: "PoppinsSemiBold",
                 fontSize: 14,
               }}
             >
@@ -116,7 +116,7 @@ const AccountScreen = () => {
                   style={{
                     paddingTop: 15,
                     color: "#C3C3C3",
-                    fontFamily: "JakartaSemiBold",
+                    fontFamily: "PoppinsSemiBold",
                     fontSize: 10,
                   }}
                 >
@@ -126,7 +126,7 @@ const AccountScreen = () => {
                   style={{
                     paddingTop: 8,
                     color: theme.black,
-                    fontFamily: "JakartaSemiBold",
+                    fontFamily: "PoppinsSemiBold",
                     fontSize: 14,
                   }}
                 >
@@ -138,7 +138,7 @@ const AccountScreen = () => {
                   style={{
                     paddingTop: 15,
                     color: "#C3C3C3",
-                    fontFamily: "JakartaSemiBold",
+                    fontFamily: "PoppinsSemiBold",
                     fontSize: 10,
                   }}
                 >
@@ -149,7 +149,7 @@ const AccountScreen = () => {
                     paddingTop: 8,
                     color: theme.black,
   
-                    fontFamily: "JakartaSemiBold",
+                    fontFamily: "PoppinsSemiBold",
                     fontSize: 14,
                   }}
                 >
@@ -171,7 +171,7 @@ const AccountScreen = () => {
               style={{
                 paddingTop: 15,
                 color: "#C3C3C3",
-                fontFamily: "JakartaSemiBold",
+                fontFamily: "PoppinsSemiBold",
                 fontSize: 10,
               }}
             >
@@ -182,7 +182,7 @@ const AccountScreen = () => {
                 paddingTop: 8,
                 color: theme.black,
   
-                fontFamily: "JakartaSemiBold",
+                fontFamily: "PoppinsSemiBold",
                 paddingBottom: 15,
                 fontSize: 14,
               }}
@@ -201,7 +201,7 @@ const AccountScreen = () => {
               style={{
                 paddingTop: 15,
                 color: "#C3C3C3",
-                fontFamily: "JakartaSemiBold",
+                fontFamily: "PoppinsSemiBold",
                 fontSize: 10,
               }}
             >
@@ -212,7 +212,7 @@ const AccountScreen = () => {
                 paddingTop: 8,
                 color: theme.black,
   
-                fontFamily: "JakartaSemiBold",
+                fontFamily: "PoppinsSemiBold",
                 fontSize: 14,
               }}
             >
@@ -231,7 +231,7 @@ const AccountScreen = () => {
               style={{
                 paddingTop: 15,
                 color: "#C3C3C3",
-                fontFamily: "JakartaSemiBold",
+                fontFamily: "PoppinsSemiBold",
                 fontSize: 10,
               }}
             >
@@ -242,7 +242,7 @@ const AccountScreen = () => {
                 paddingTop: 8,
                 color: theme.black,
   
-                fontFamily: "JakartaSemiBold",
+                fontFamily: "PoppinsSemiBold",
                 fontSize: 14,
               }}
             >
@@ -261,7 +261,7 @@ const AccountScreen = () => {
               style={{
                 paddingTop: 15,
                 color: "#C3C3C3",
-                fontFamily: "JakartaSemiBold",
+                fontFamily: "PoppinsSemiBold",
                 fontSize: 10,
               }}
             >
@@ -272,7 +272,7 @@ const AccountScreen = () => {
                 paddingTop: 8,
                 color: theme.black,
   
-                fontFamily: "JakartaSemiBold",
+                fontFamily: "PoppinsSemiBold",
                 fontSize: 14,
               }}
             >
@@ -291,7 +291,7 @@ const AccountScreen = () => {
               style={{
                 paddingTop: 15,
                 color: "#C3C3C3",
-                fontFamily: "JakartaSemiBold",
+                fontFamily: "PoppinsSemiBold",
                 fontSize: 10,
               }}
             >
@@ -302,7 +302,7 @@ const AccountScreen = () => {
                 paddingTop: 8,
                 color: theme.black,
   
-                fontFamily: "JakartaSemiBold",
+                fontFamily: "PoppinsSemiBold",
                 paddingBottom: 15,
                 fontSize: 14,
               }}

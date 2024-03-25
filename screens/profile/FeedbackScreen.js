@@ -10,7 +10,7 @@ import {
   TouchableWithoutFeedback,
   Alert,
 } from "react-native";
-import { Back } from "../../onstants/icons";
+import { Back } from "../../constants/icons";
 import { useNavigation } from "@react-navigation/core";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Formik } from "formik";
